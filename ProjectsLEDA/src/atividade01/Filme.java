@@ -13,9 +13,15 @@ public class Filme implements Comparable<Filme>{
 	}
 	
 	@Override
-	public int compareTo(Filme o) {
-		// TODO 
-		return 0;
+	//TODO - not finished
+	public int compareTo(Filme outro) {
+		if(this.nota != outro.nota) {
+			return Integer.compare(this.nota, outro.nota);
+		} else if (this.ano != outro.ano) {
+			return Integer.compare(this.ano, outro.ano);
+		} else {
+			return this.nome.compareTo(outro.nome);
+		}
 	}
 
 	
