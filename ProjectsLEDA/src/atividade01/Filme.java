@@ -16,19 +16,33 @@ public class Filme implements Comparable<Filme>{
 	//TODO - not finished
 	public int compareTo(Filme outro) {
 		if(this.nota != outro.nota) {
-			return Integer.compare(this.nota, outro.nota);
-		} else if (this.ano != outro.ano) {
-			return Integer.compare(this.ano, outro.ano);
-		} else {
+			if(this.nota < outro.nota) {
+				return 1;
+			}
+			else if(this.nota > outro.nota){
+				return -1;
+			}
+		} 
+		else if (this.ano != outro.ano) {
+			if(this.ano < outro.ano) {
+				return -1;
+			}
+			else if(this.ano > outro.ano){
+				return 1;
+			}
+		} 
+		else if (!this.nome.equals(outro.nome)){
 			return this.nome.compareTo(outro.nome);
 		}
+			
+		return 0;
 	}
 
 	
 	@Override
 	public String toString() {
 		// TODO
-		return "Filme [nome=" + nome + ", nota=" + nota + ", ano=" + ano + "]";
+		return "Filme [nome = " + nome + ", nota = " + nota + ", ano = " + ano + "]\n";
 	}
 
 	

@@ -1,8 +1,7 @@
 package atividade01;
 
-import java.util.ArrayList;
 import java.util.List;
-
+import java.util.ArrayList;
 
 public class RegistroFilmes {
 
@@ -28,6 +27,12 @@ public class RegistroFilmes {
 			lista.add(f);
 		}
 		
+		Ordenacao ordenar = new Ordenacao();
+		System.out.println(lista);
+		ordenar.insertionSort(filmes);
+		//Collections.sort(lista);
+		System.out.println("Lista Ordenada:");
+		System.out.println(lista);
 		
 		
 		
