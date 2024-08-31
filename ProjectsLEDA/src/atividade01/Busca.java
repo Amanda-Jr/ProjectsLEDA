@@ -3,8 +3,15 @@ package atividade01;
 public class Busca implements Busca_IF{
 
 	@Override
-	public Filme buscaLinearIterativa(Filme[] filmes, int nota) {
-		// TODO William
+	public Filme buscaLinearIterativa(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
+		if(nota < 0 || nota > 5) {
+			throw new NotaOutOfBoundsException("Nota Inválida! Digite uma nota entre 1 e 5.");
+		}
+		for(int i=0; i<filmes.length; i++) {
+			if(filmes[i].getNota() == nota) {
+				return filmes[i];
+			}
+		}
 		return null;
 	}
 

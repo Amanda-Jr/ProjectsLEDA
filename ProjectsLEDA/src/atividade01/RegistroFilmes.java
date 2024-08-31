@@ -16,7 +16,7 @@ public class RegistroFilmes {
 		Filme f5 = new Filme("A que pena seria", 2008, 4);
 		Filme f6 = new Filme("A pequena sereia", 2000, 3);
 		Filme f7 = new Filme("O menino do pijama listrado", 2015, 2);
-		Filme f8 = new Filme("O pijama do menino listrado", 2000, 1);
+		Filme f8 = new Filme("O pijama do menino listrado", 2000, 2);
 		Filme f9 = new Filme("Tarzan", 1994, 5);
 		Filme f10 = new Filme("Zootopia", 2017, 5);
 		
@@ -40,7 +40,7 @@ public class RegistroFilmes {
 		
 		
 		System.out.println("Lista Ordenada:");
-		Ordenacao.quickSort(filmes, 0, filmes.length-1);
+		Ordenacao.quickSortRandom(filmes, 0, filmes.length-1);
 		
 		for (Filme f : filmes) {
 			System.out.println(f);
@@ -49,10 +49,22 @@ public class RegistroFilmes {
 		Busca_IF busca = new Busca();
 		Filme filmeEncontrado;
 		
-		//filmeEncontrado = busca.buscaLinearRecursiva(filmes, 2);
-		filmeEncontrado = busca.buscaBinariaRecursiva(filmes, 3);
+		try {
+			
+			filmeEncontrado = busca.buscaLinearIterativa(filmes, 6);
+			//filmeEncontrado = busca.buscaLinearRecursiva(filmes, 2);
+			//filmeEncontrado = busca.buscaBinariaRecursiva(filmes, 3);
+			
+			if(filmeEncontrado != null) {
+				System.out.println("Filme encontrado: " + filmeEncontrado);
+			}else {
+				System.out.println("Filme não encontrado");
+			}
+			
+		} catch (NotaOutOfBoundsException e) {
+			System.err.println(e.getMessage());
+		}
 		
-		System.out.println(filmeEncontrado);
 		
 		
 	}

@@ -1,6 +1,24 @@
 package atividade01;
+import java.util.Random;;
 
 public class Ordenacao {
+	
+	public static void embaralhar(Filme[] v) {
+
+		Random random = new Random();
+
+		for (int i=0; i < (v.length - 1); i++) {
+
+			//sorteia um índice
+			int j = random.nextInt(v.length);
+
+			//troca o conteúdo dos índices i e j do vetor
+			Filme temp = v[i];
+			v[i] = v[j];
+			v[j] = temp;
+		}
+
+	}
 	
 	public void insertionSort(Filme[] filmes) {
 		Filme menor;
@@ -47,6 +65,15 @@ public class Ordenacao {
 	}
 	
 	public static void quickSort(Filme A[], int left, int right) {
+		if(left < right) {
+			int pivot = partition(A, left, right);
+			quickSort(A, left, pivot-1);
+			quickSort(A, pivot+1, right);
+		}
+	}
+	
+	public static void quickSortRandom(Filme A[], int left, int right) {
+		embaralhar(A);
 		if(left < right) {
 			int pivot = partition(A, left, right);
 			quickSort(A, left, pivot-1);
