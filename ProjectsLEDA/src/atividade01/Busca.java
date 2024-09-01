@@ -43,11 +43,7 @@ public class Busca implements Busca_IF{
 
 	@Override
 	public Filme buscaBinaria_iterativa(Filme[] filmes, int nota) {
-<<<<<<< HEAD
-	    int inicio = 0;
-=======
 		    int inicio = 0;
->>>>>>> refs/remotes/origin/main
         int fim = filmes.length - 1;
 
         while (inicio <= fim) {
@@ -92,30 +88,7 @@ public class Busca implements Busca_IF{
 
 	@Override
 	public Filme buscaLinear_iterativa_duasPontas(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
-		 int inicio = 0;
-<<<<<<< HEAD
-	        int fim = filmes.length - 1;
-	        if (nota < 1 || nota > 5) {
-	            throw new NotaOutOfBoundsException("Nota " + nota + " fora dos limites permitidos (1-5).");
-	        }
-	        while (inicio <= fim) {
-	            if (filmes[inicio].getNota() == nota) {
-	                return filmes[inicio];
-	            }
-	            if (filmes[fim].getNota() == nota) {
-	                return filmes[fim];
-	            }
-
-	            inicio++;
-	            fim--;
-	        }
-	        return null;
-	}
-	
-	
-	
-}
-=======
+		int inicio = 0;
         int fim = filmes.length - 1;
         if (nota < 1 || nota > 5) {
             throw new NotaOutOfBoundsException("Nota " + nota + " fora dos limites permitidos (1-5).");
@@ -132,5 +105,9 @@ public class Busca implements Busca_IF{
             fim--;
         }
         return null;
-    }
->>>>>>> refs/remotes/origin/main
+    } 
+	
+	
+}
+	
+	
