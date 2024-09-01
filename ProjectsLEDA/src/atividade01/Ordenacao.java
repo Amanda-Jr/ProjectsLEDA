@@ -103,9 +103,20 @@ public class Ordenacao implements Ordenacao_IF{
 	
 	@Override
 	public void countingSort(Filme[] filmes) {
-		// TODO Auto-generated method stub
-		
-	}
+		int[] count = new int[5];
+        Filme[] sortedFilmes = new Filme[filmes.length];
 
-	
-}
+        for (int i = 0; i < filmes.length; i++) {
+            count[filmes[i].getNota() - 1]++;
+        }
+        for (int i = 1; i < count.length; i++) {
+            count[i] += count[i - 1];
+        }
+        for (int i = filmes.length - 1; i >= 0; i--) {
+            sortedFilmes[count[filmes[i].getNota() - 1] - 1] = filmes[i];
+            count[filmes[i].getNota() - 1]--;
+        }
+        for (int i = 0; i < filmes.length; i++) {
+            filmes[i] = sortedFilmes[i];
+        }
+    }
