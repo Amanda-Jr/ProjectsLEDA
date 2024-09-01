@@ -1,6 +1,6 @@
 package atividade01;
 
-public class Filme implements Comparable<Filme>{
+public class Filme implements Filme_IF{
 	private String nome;
 	private int ano, nota;
 	
@@ -11,20 +11,21 @@ public class Filme implements Comparable<Filme>{
 	}
 	
 	@Override
+    public int compareTo(Filme_IF outro_filme) {
+    	if (this.nota != outro_filme.getNota()) {
+    		return -1 * Integer.compare(this.nota, outro_filme.getNota());
+    	} else if (this.ano != outro_filme.getAno()) {
+    		return Integer.compare(this.ano, outro_filme.getAno());
+    	}   else {
+    		return this.nome.compareTo(outro_filme.getNome());
+    	}
+	}
+	
+	@Override
 	public String toString() {
 		return "Filme [nome=" + nome + ", ano=" + ano + ", nota=" + nota + "]";
 	}
 
-	@Override
-    public int compareTo(Filme outro) {
-    	if (this.nota != outro.nota) {
-    		return -1 * Integer.compare(this.nota, outro.nota);
-    	} else if (this.ano != outro.ano) {
-    		return Integer.compare(this.ano, outro.ano);
-    	}   else {
-    		return this.nome.compareTo(outro.nome);
-    	}
-	}
 	
 	public String getNome() {
 		return nome;
@@ -44,6 +45,8 @@ public class Filme implements Comparable<Filme>{
 	public void setNota(int nota) {
 		this.nota = nota;
 	}
+
+	
 	
 	
 }

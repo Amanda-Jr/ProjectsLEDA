@@ -40,7 +40,8 @@ public class RegistroFilmes {
 		
 		
 		System.out.println("Lista Ordenada:");
-		Ordenacao.quickSortRandom(filmes, 0, filmes.length-1);
+		Ordenacao ordenacao = new Ordenacao();
+		ordenacao.quickSortRandom(filmes, 0, filmes.length-1);
 		
 		for (Filme f : filmes) {
 			System.out.println(f);
@@ -51,7 +52,7 @@ public class RegistroFilmes {
 		
 		try {
 			
-			filmeEncontrado = busca.buscaLinearIterativa(filmes, 6);
+			filmeEncontrado = busca.buscaLinear_iterativa(filmes, 6);
 			//filmeEncontrado = busca.buscaLinearRecursiva(filmes, 2);
 			//filmeEncontrado = busca.buscaBinariaRecursiva(filmes, 3);
 			

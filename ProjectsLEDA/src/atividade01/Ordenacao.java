@@ -1,7 +1,14 @@
 package atividade01;
 import java.util.Random;;
 
-public class Ordenacao {
+public class Ordenacao implements Ordenacao_IF{
+	
+	@Override
+	public boolean checaVetorOrdenado(Filme[] filmes) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 	public static void embaralhar(Filme[] v) {
 
@@ -27,7 +34,7 @@ public class Ordenacao {
 		for(int i=1; i<filmes.length; i++) {
 			menor = filmes[i];
 			j = i-1;
-			while(j>0 && filmes[j] > menor) {
+			while(j>0 && filmes[j].compareTo(menor) ) {
 				filmes[j] = filmes[j+1];
 				j--;
 			}
@@ -40,13 +47,13 @@ public class Ordenacao {
 	}
 
 	
-	public static void swap(Filme A[], int i, int j) {
+	public void swap(Filme A[], int i, int j) {
 		Filme temp = A[i];
 		A[i] = A[j];
 		A[j] = temp;
 	}
 	
-	public static int partition(Filme A[], int left, int right) {
+	public int partition(Filme A[], int left, int right) {
 		Filme p = A[left];
 		int i = left + 1;
 		int j = right;
@@ -64,7 +71,7 @@ public class Ordenacao {
 		return j;
 	}
 	
-	public static void quickSort(Filme A[], int left, int right) {
+	public void quickSort(Filme A[], int left, int right) {
 		if(left < right) {
 			int pivot = partition(A, left, right);
 			quickSort(A, left, pivot-1);
@@ -72,7 +79,7 @@ public class Ordenacao {
 		}
 	}
 	
-	public static void quickSortRandom(Filme A[], int left, int right) {
+	public void quickSortRandom(Filme A[], int left, int right) {
 		embaralhar(A);
 		if(left < right) {
 			int pivot = partition(A, left, right);
@@ -80,4 +87,25 @@ public class Ordenacao {
 			quickSort(A, pivot+1, right);
 		}
 	}
+
+	@Override
+	public void quickSort(Filme[] filmes) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void quickSortRandom(Filme[] filmes) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void countingSort(Filme[] filmes) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }

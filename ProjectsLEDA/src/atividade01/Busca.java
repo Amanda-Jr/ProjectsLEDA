@@ -1,9 +1,15 @@
 package atividade01;
 
 public class Busca implements Busca_IF{
+	
+	@Override
+	public boolean checaVetorOrdenado(Filme[] filmes) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 	@Override
-	public Filme buscaLinearIterativa(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
+	public Filme buscaLinear_iterativa(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
 		if(nota < 0 || nota > 5) {
 			throw new NotaOutOfBoundsException("Nota Inválida! Digite uma nota entre 1 e 5.");
 		}
@@ -16,7 +22,7 @@ public class Busca implements Busca_IF{
 	}
 
 	@Override
-	public Filme buscaLinearRecursiva(Filme[] filmes, int nota) {
+	public Filme buscaLinear_recursiva(Filme[] filmes, int nota) {
 		return buscaLinearRecursivaAuxiliar(filmes, nota, 0);
 	}
 	
@@ -36,13 +42,13 @@ public class Busca implements Busca_IF{
 	}
 
 	@Override
-	public Filme buscaBinariaIterativa(Filme[] filmes, int nota) {
+	public Filme buscaBinaria_iterativa(Filme[] filmes, int nota) {
 		// TODO Stephany
 		return null;
 	}
 
 	@Override
-	public Filme buscaBinariaRecursiva(Filme[] filmes, int nota) {
+	public Filme buscaBinaria_recursiva(Filme[] filmes, int nota) {
 		// TODO Amanda
 		return buscaBinariaRecursivaAuxiliar(filmes, nota, 0, filmes.length-1);
 	}
@@ -65,8 +71,9 @@ public class Busca implements Busca_IF{
 		}
 	}
 
+
 	@Override
-	public Filme buscaLinearIterativaDuasPontas(Filme[] filmes, int nota) {
+	public Filme buscaLinear_iterativa_duasPontas(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
 		// TODO Stephany
 		return null;
 	}

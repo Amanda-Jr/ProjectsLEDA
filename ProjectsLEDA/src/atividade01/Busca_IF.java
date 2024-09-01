@@ -2,9 +2,11 @@ package atividade01;
 
 public interface Busca_IF {
 	//TODO exceptions here
-	Filme buscaLinearIterativa(Filme[] filmes, int nota) throws NotaOutOfBoundsException;
-	Filme buscaLinearRecursiva(Filme[] filmes, int nota);
-	Filme buscaBinariaIterativa(Filme[] filmes, int nota);
-	Filme buscaBinariaRecursiva(Filme[] filmes, int nota);
-	Filme buscaLinearIterativaDuasPontas(Filme[] filmes, int nota);
+	
+	boolean checaVetorOrdenado(Filme[] filmes);
+	Filme buscaLinear_iterativa(Filme[] filmes, int nota) throws NotaOutOfBoundsException;
+	Filme buscaLinear_recursiva(Filme[] filmes, int nota) throws NotaOutOfBoundsException;
+	Filme buscaBinaria_iterativa(Filme[] filmes, int nota) throws NotaOutOfBoundsException;
+	Filme buscaBinaria_recursiva(Filme[] filmes, int nota) throws NotaOutOfBoundsException;
+	Filme buscaLinear_iterativa_duasPontas(Filme[] filmes, int nota) throws NotaOutOfBoundsException;
 }
