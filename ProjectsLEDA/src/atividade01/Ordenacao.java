@@ -5,8 +5,14 @@ public class Ordenacao implements Ordenacao_IF{
 	
 	@Override
 	public boolean checaVetorOrdenado(Filme[] filmes) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		for(int i=1; i<filmes.length-1; i++) {
+			if(filmes[i].compareTo(filmes[i-1]) > 0) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	
@@ -29,16 +35,16 @@ public class Ordenacao implements Ordenacao_IF{
 	
 	public void insertionSort(Filme[] filmes) {
 		Filme menor;
-		int j;
+		int i;
 		
-		for(int i=1; i<filmes.length; i++) {
-			menor = filmes[i];
-			j = i-1;
-			while(j>0 && filmes[j].compareTo(menor) ) {
-				filmes[j] = filmes[j+1];
-				j--;
+		for(int j=1; j<filmes.length; j++) {
+			menor = filmes[j];
+			i = j-1;
+			while(i>0 && (filmes[i].compareTo(menor) > 0)) {
+				filmes[j] = filmes[i+1];
+				i--;
 			}
-			menor = filmes[j+1];
+			menor = filmes[i+1];
 		}
 	}
 	
@@ -103,7 +109,22 @@ public class Ordenacao implements Ordenacao_IF{
 	
 	@Override
 	public void countingSort(Filme[] filmes) {
-		// TODO Auto-generated method stub
+		int[] count = new int[5];
+        Filme[] sortedFilmes = new Filme[filmes.length];
+
+        for (int i = 0; i < filmes.length; i++) {
+            count[filmes[i].getNota() - 1]++;
+        }
+        for (int i = 1; i < count.length; i++) {
+            count[i] += count[i - 1];
+        }
+        for (int i = filmes.length - 1; i >= 0; i--) {
+            sortedFilmes[count[filmes[i].getNota() - 1] - 1] = filmes[i];
+            count[filmes[i].getNota() - 1]--;
+        }
+        for (int i = 0; i < filmes.length; i++) {
+            filmes[i] = sortedFilmes[i];
+        }
 		
 	}
 

@@ -10,14 +10,14 @@ public class RegistroFilmes {
 		
 		//apenas para testar
 		Filme f1 = new Filme("Caroline", 2004, 3);
-		Filme f2 = new Filme("Nemo", 1944, 4);
+		Filme f2 = new Filme("Nemo", 1994, 4);
 		Filme f3 = new Filme("Lisbela", 2004, 5);
 		Filme f4 = new Filme("Divertidamente", 2004, 5);
 		Filme f5 = new Filme("A que pena seria", 2008, 4);
 		Filme f6 = new Filme("A pequena sereia", 2000, 3);
 		Filme f7 = new Filme("O menino do pijama listrado", 2015, 2);
 		Filme f8 = new Filme("O pijama do menino listrado", 2000, 2);
-		Filme f9 = new Filme("Tarzan", 1994, 5);
+		Filme f9 = new Filme("Tarzan", 1994, 4);
 		Filme f10 = new Filme("Zootopia", 2017, 5);
 		
 		Filme[] filmes = {f1, f2, f3, f4, f5, f6, f7, f8, f9, f10};
@@ -42,6 +42,8 @@ public class RegistroFilmes {
 		System.out.println("Lista Ordenada:");
 		Ordenacao ordenacao = new Ordenacao();
 		ordenacao.quickSortRandom(filmes, 0, filmes.length-1);
+		//ordenacao.insertionSort(filmes);
+		//ordenacao.countingSort(filmes);
 		
 		for (Filme f : filmes) {
 			System.out.println(f);
@@ -52,9 +54,10 @@ public class RegistroFilmes {
 		
 		try {
 			
-			filmeEncontrado = busca.buscaLinear_iterativa(filmes, 6);
+			//filmeEncontrado = busca.buscaLinear_iterativa(filmes, 4);
 			//filmeEncontrado = busca.buscaLinearRecursiva(filmes, 2);
 			//filmeEncontrado = busca.buscaBinariaRecursiva(filmes, 3);
+			filmeEncontrado = busca.buscaBinaria_iterativa(filmes, 5);
 			
 			if(filmeEncontrado != null) {
 				System.out.println("Filme encontrado: " + filmeEncontrado);
