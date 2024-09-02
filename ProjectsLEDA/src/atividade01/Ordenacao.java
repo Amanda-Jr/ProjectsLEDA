@@ -134,33 +134,28 @@ public class Ordenacao implements Ordenacao_IF{
 		return j;
 	}
 	
-	public void quickSort(Filme A[], int left, int right) {
+	public void AUXquickSort(Filme A[], int left, int right) {
 		if(left < right) {
 			int pivot = partition(A, left, right);
-			quickSort(A, left, pivot-1);
-			quickSort(A, pivot+1, right);
+			AUXquickSort(A, left, pivot-1);
+			AUXquickSort(A, pivot+1, right);
 		}
 	}
 	
-	public void quickSortRandom(Filme A[], int left, int right) {
-		embaralhar(A);
-		if(left < right) {
-			int pivot = partition(A, left, right);
-			quickSort(A, left, pivot-1);
-			quickSort(A, pivot+1, right);
-		}
-	}
 
 	@Override
-	public void quickSort(Filme[] filmes) {
-		// TODO Auto-generated method stub
-		
+	public void quickSort(Filme A[]) {
+		if (A == null || A.length == 0) {
+			return;
+		}
+		AUXquickSort(A, 0, A.length - 1);
 	}
 
 
 	@Override
 	public void quickSortRandom(Filme[] filmes) {
-		// TODO Auto-generated method stub
+		embaralhar(filmes);
+		quickSort(filmes);
 		
 	}
 	
