@@ -48,9 +48,9 @@ public class RegistroFilmes {
 			try {
 					
 				//filmeEncontrado = busca.buscaLinear_iterativa(filmes, 4);
-				//filmeEncontrado = busca.buscaLinear_recursiva(filmes, 0);
+				filmeEncontrado = busca.buscaLinear_recursiva(filmes, 2);
 				//filmeEncontrado = busca.buscaBinaria_iterativa(filmes, 5);
-				filmeEncontrado = busca.buscaBinaria_recursiva(filmes, 1);
+				//filmeEncontrado = busca.buscaBinaria_recursiva(filmes, 1);
 					
 				if(filmeEncontrado != null) {
 					System.out.println("\nFilme encontrado: " + filmeEncontrado);

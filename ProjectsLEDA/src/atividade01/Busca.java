@@ -31,13 +31,12 @@ public class Busca implements Busca_IF{
 	
 	public Filme buscaLinearRecursivaAuxiliar(Filme[] filmes, int nota, int i) {
 		Filme achado = null;
-		if(i > filmes.length) {
+		if(i < filmes.length) {
 			if(filmes[i].getNota() == nota) {
 				achado = filmes[i];
-				return achado;
 			}
 			else {
-				buscaLinearRecursivaAuxiliar(filmes, nota, i+1);
+				achado = buscaLinearRecursivaAuxiliar(filmes, nota, i+1);
 			}
 		}
 		
