@@ -7,7 +7,7 @@ public class Ordenacao implements Ordenacao_IF{
 	public boolean checaVetorOrdenado(Filme[] filmes) {
 		
 		for(int i=1; i<filmes.length-1; i++) {
-			if(filmes[i].compareTo(filmes[i-1]) > 0) {
+			if(filmes[i].compareTo(filmes[i-1]) < 0) {
 				return false;
 			}
 		}
@@ -34,21 +34,78 @@ public class Ordenacao implements Ordenacao_IF{
 	}
 	
 	public void insertionSort(Filme[] filmes) {
-		Filme menor;
-		int i;
 		
 		for(int j=1; j<filmes.length; j++) {
-			menor = filmes[j];
-			i = j-1;
-			while(i>0 && (filmes[i].compareTo(menor) < 0)) {
-				filmes[j] = filmes[i+1];
-				i--;
+			Filme key = filmes[j];
+			int i = j-1;
+			
+			while(i>=0 && (filmes[i].compareTo(key) >= 1)) {
+				filmes[i+1] = filmes[i];
+				i = i-1;
 			}
-			menor = filmes[i+1];
+			
+			filmes[i+1] = key;
 		}
 	}
 	
 	public void mergeSort(Filme[] filmes) {
+		int n = filmes.length;
+		if(n==1) {
+			return;
+		} 
+		
+		int meio = n/2;
+		Filme[] left = new Filme[meio];
+		Filme[] right = new Filme[n- meio];
+		
+		for(int i=0; i<meio; i++) {
+			left[i] = filmes[i];
+		}
+		
+		for(int i=meio; i<n; i++) {
+			right[i - meio] = filmes[i];
+		}
+		
+		mergeSort(left);
+		mergeSort(right);
+		
+		mergeTwoSortedLists(filmes, left, right);
+		
+	}
+	
+	public void mergeTwoSortedLists(Filme[] filmes, Filme[] left, Filme[] right) {
+		int leftSize = left.length;
+		int rightSize = right.length;
+		
+		int i=0, j=0, k=0;
+		
+		while(i<leftSize && j < rightSize ) {
+			
+			if(left[i].compareTo(right[j]) <= -1) {
+				filmes[k] = left[i];
+				i++;
+			}
+			else {
+				filmes[k] = right[j];
+				j++;
+			}
+			
+			k++;
+		}
+		
+		while(i<leftSize) {
+			filmes[k] = left[i];
+			i++;
+			k++;
+		}
+		
+		while(j<rightSize) {
+			filmes[k] = right[j];
+			j++;
+			k++;
+		}
+		
+		
 		
 	}
 

@@ -38,37 +38,47 @@ public class RegistroFilmes {
 			System.out.println(f);
 		}
 		
-		
-		System.out.println("Lista Ordenada:");
 		Ordenacao ordenacao = new Ordenacao();
-		ordenacao.quickSortRandom(filmes, 0, filmes.length-1);
-		//ordenacao.insertionSort(filmes);
+		//ordenacao.quickSortRandom(filmes, 0, filmes.length-1);
+		ordenacao.insertionSort(filmes);
 		//ordenacao.countingSort(filmes);
-		
-		for (Filme f : filmes) {
-			System.out.println(f);
-		}
 		
 		Busca_IF busca = new Busca();
 		Filme filmeEncontrado;
 		
-		try {
+		if(ordenacao.checaVetorOrdenado(filmes)) {
+			System.out.println("Lista Ordenada:");
 			
-			//filmeEncontrado = busca.buscaLinear_iterativa(filmes, 4);
-			//filmeEncontrado = busca.buscaLinearRecursiva(filmes, 2);
-			//filmeEncontrado = busca.buscaBinariaRecursiva(filmes, 3);
-			filmeEncontrado = busca.buscaBinaria_iterativa(filmes, 5);
-			
-			if(filmeEncontrado != null) {
-				System.out.println("Filme encontrado: " + filmeEncontrado);
-			}else {
-				System.out.println("Filme não encontrado");
+			for (Filme f : filmes) {
+				System.out.println(f);
 			}
 			
-		} catch (NotaOutOfBoundsException e) {
-			System.err.println(e.getMessage());
+			try {
+					
+				filmeEncontrado = busca.buscaLinear_iterativa(filmes, 4);
+				//filmeEncontrado = busca.buscaLinearRecursiva(filmes, 2);
+				//filmeEncontrado = busca.buscaLinear_recursiva(filmes, 2);
+				//filmeEncontrado = busca.buscaBinaria_iterativa(filmes, 5);
+					
+				if(filmeEncontrado != null) {
+					System.out.println("Filme encontrado: " + filmeEncontrado);
+				}else {
+					System.out.println("Filme não encontrado");
+				}
+					
+			} catch (NotaOutOfBoundsException e) {
+				System.err.println(e.getMessage());
+			}
+
+		} else {
+			System.out.println("--------------------------------");
+			for (Filme f : filmes) {
+				System.out.println(f);
+			}
 		}
 		
+		
+
 		
 		
 	}

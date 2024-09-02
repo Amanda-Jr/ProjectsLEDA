@@ -22,7 +22,10 @@ public class Busca implements Busca_IF{
 	}
 
 	@Override
-	public Filme buscaLinear_recursiva(Filme[] filmes, int nota) {
+	public Filme buscaLinear_recursiva(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
+		if(nota < 0 || nota > 5) {
+			throw new NotaOutOfBoundsException("Nota Inválida! Digite uma nota entre 1 e 5.");
+		}
 		return buscaLinearRecursivaAuxiliar(filmes, nota, 0);
 	}
 	
