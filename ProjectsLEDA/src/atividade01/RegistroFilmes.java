@@ -9,6 +9,7 @@ public class RegistroFilmes {
 	public static void main(String[] args) {
 		
 		//apenas para testar
+		System.out.println("\nLista Original:");
 		Filme f1 = new Filme("Caroline", 2004, 3);
 		Filme f2 = new Filme("Nemo", 1994, 4);
 		Filme f3 = new Filme("Lisbela", 2004, 5);
@@ -40,14 +41,15 @@ public class RegistroFilmes {
 		
 		Ordenacao ordenacao = new Ordenacao();
 		//ordenacao.quickSortRandom(filmes, 0, filmes.length-1);
-		ordenacao.insertionSort(filmes);
+		//ordenacao.insertionSort(filmes);
+		ordenacao.mergeSort(filmes);
 		//ordenacao.countingSort(filmes);
 		
 		Busca_IF busca = new Busca();
 		Filme filmeEncontrado;
 		
 		if(ordenacao.checaVetorOrdenado(filmes)) {
-			System.out.println("Lista Ordenada:");
+			System.out.println("\nLista Ordenada:");
 			
 			for (Filme f : filmes) {
 				System.out.println(f);
@@ -61,9 +63,9 @@ public class RegistroFilmes {
 				//filmeEncontrado = busca.buscaBinaria_iterativa(filmes, 5);
 					
 				if(filmeEncontrado != null) {
-					System.out.println("Filme encontrado: " + filmeEncontrado);
+					System.out.println("\nFilme encontrado: " + filmeEncontrado);
 				}else {
-					System.out.println("Filme não encontrado");
+					System.out.println("\nFilme não encontrado");
 				}
 					
 			} catch (NotaOutOfBoundsException e) {
