@@ -1,7 +1,6 @@
 package atividade01;
 
 public interface Busca_IF {
-	//TODO exceptions here
 	
 	boolean checaVetorOrdenado(Filme[] filmes);
 	Filme buscaLinear_iterativa(Filme[] filmes, int nota) throws NotaOutOfBoundsException;

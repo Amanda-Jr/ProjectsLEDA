@@ -11,7 +11,7 @@ public class Busca implements Busca_IF{
 	@Override
 	public Filme buscaLinear_iterativa(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
 		if(nota < 0 || nota > 5) {
-			throw new NotaOutOfBoundsException("Nota Inválida! Digite uma nota entre 1 e 5.");
+			throw new NotaOutOfBoundsException("\nNota Inválida! Digite uma nota entre 1 e 5.");
 		}
 		for(int i=0; i<filmes.length; i++) {
 			if(filmes[i].getNota() == nota) {
@@ -24,14 +24,14 @@ public class Busca implements Busca_IF{
 	@Override
 	public Filme buscaLinear_recursiva(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
 		if(nota < 0 || nota > 5) {
-			throw new NotaOutOfBoundsException("Nota Inválida! Digite uma nota entre 1 e 5.");
+			throw new NotaOutOfBoundsException("\nNota Inválida! Digite uma nota entre 1 e 5.");
 		}
 		return buscaLinearRecursivaAuxiliar(filmes, nota, 0);
 	}
 	
 	public Filme buscaLinearRecursivaAuxiliar(Filme[] filmes, int nota, int i) {
 		Filme achado = null;
-		if(i < filmes.length) {
+		if(i > filmes.length) {
 			if(filmes[i].getNota() == nota) {
 				achado = filmes[i];
 				return achado;
@@ -46,7 +46,7 @@ public class Busca implements Busca_IF{
 
 	@Override
 	public Filme buscaBinaria_iterativa(Filme[] filmes, int nota) {
-		    int inicio = 0;
+		int inicio = 0;
         int fim = filmes.length - 1;
 
         while (inicio <= fim) {
@@ -65,13 +65,15 @@ public class Busca implements Busca_IF{
 	}
 
 	@Override
-	public Filme buscaBinaria_recursiva(Filme[] filmes, int nota) {
-		// TODO Amanda
+	public Filme buscaBinaria_recursiva(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
+		if(nota < 0 || nota > 5) {
+			throw new NotaOutOfBoundsException("\nNota Inválida! Digite uma nota entre 1 e 5.");
+		}
+		
 		return buscaBinariaRecursivaAuxiliar(filmes, nota, 0, filmes.length-1);
 	}
 	
-	public Filme buscaBinariaRecursivaAuxiliar(Filme[] filmes, int nota, int menor, int maior) {
-		// TODO Amanda
+	public Filme buscaBinariaRecursivaAuxiliar(Filme[] filmes, int nota, int menor, int maior)  {
 		
 		int media = (menor + maior)/2;
 		if(menor > maior) {
@@ -80,7 +82,7 @@ public class Busca implements Busca_IF{
 		if(filmes[media].getNota() == nota) {
 			return filmes[media];
 		}
-		else if(filmes[media].getNota() < nota) {
+		if(filmes[media].getNota() > nota) {
 			return buscaBinariaRecursivaAuxiliar(filmes, nota, media+1, maior);
 		}
 		else {
