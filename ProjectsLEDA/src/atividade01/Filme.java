@@ -4,7 +4,7 @@ public class Filme implements Filme_IF{
 	private String nome;
 	private int ano, nota;
 	
-	Filme(String nome, int ano, int nota){
+	Filme(String nome, int nota, int ano){
 		this.nome = nome;
 		this.ano = ano;
 		this.nota = nota;

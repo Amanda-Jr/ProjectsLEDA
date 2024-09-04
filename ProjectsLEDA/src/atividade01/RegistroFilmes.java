@@ -30,11 +30,11 @@ public class RegistroFilmes {
 		}
 		
 		Ordenacao ordenacao = new Ordenacao();
-		//ordenacao.quickSort(filmes);
-		//ordenacao.quickSortRandom(filmes);
-		//ordenacao.insertionSort(filmes);
-		ordenacao.mergeSort(filmes);
-		//ordenacao.countingSort(filmes);
+		//ordenacao.quickSort(filmes.clone());
+		//ordenacao.quickSortRandom(filmes.clone());
+		//ordenacao.insertionSort(filmes.clone());
+		ordenacao.mergeSort(filmes.clone());
+		//ordenacao.countingSort(filmes.clone());
 		
 		Busca_IF busca = new Busca();
 		Filme filmeEncontrado;
@@ -48,10 +48,10 @@ public class RegistroFilmes {
 			
 			try {
 					
-				//filmeEncontrado = busca.buscaLinear_iterativa(filmes, 4);
-				//filmeEncontrado = busca.buscaLinear_recursiva(filmes, 2);
-				//filmeEncontrado = busca.buscaBinaria_iterativa(filmes, -1);
-				//filmeEncontrado = busca.buscaBinaria_recursiva(filmes, 1);
+				//filmeEncontrado = busca.buscaLinear_iterativa(filmes.clone(), 4);
+				//filmeEncontrado = busca.buscaLinear_recursiva(filmes.clone(), 2);
+				//filmeEncontrado = busca.buscaBinaria_iterativa(filmes.clone(), -1);
+				//filmeEncontrado = busca.buscaBinaria_recursiva(filmes.clone(), 1);
 				filmeEncontrado = busca.buscaLinear_iterativa_duasPontas(filmes, 2);
 					
 				if(filmeEncontrado != null) {
