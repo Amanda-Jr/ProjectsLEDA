@@ -177,6 +177,20 @@ public class Ordenacao implements Ordenacao_IF{
 			        filmes[i] = sortedFilmes[i];
 	    }
 	}
+
+
+	@Override
+	public void bubbleSort(Filme[] filmes) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void selectionSort(Filme[] filmes) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
 

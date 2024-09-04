@@ -4,6 +4,10 @@ public interface Ordenacao_IF {
 	
 	public boolean checaVetorOrdenado(Filme[] filmes);
 	
+	public void bubbleSort(Filme[] filmes);
+
+	public void selectionSort(Filme[] filmes);
+	
 	public void insertionSort(Filme[] filmes);
 	
 	public void quickSort(Filme[] filmes);
