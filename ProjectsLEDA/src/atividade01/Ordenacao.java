@@ -3,6 +3,8 @@ import java.util.Random;;
 
 public class Ordenacao implements Ordenacao_IF{
 	
+	static Random random = new Random();
+
 	@Override
 	public boolean checaVetorOrdenado(Filme[] filmes) {
 		
@@ -16,9 +18,7 @@ public class Ordenacao implements Ordenacao_IF{
 	}
 
 	
-	public static void embaralhar(Filme[] v) {
-
-		Random random = new Random();
+	private static void embaralhar(Filme[] v) {
 
 		for (int i=0; i < (v.length - 1); i++) {
 
@@ -32,7 +32,7 @@ public class Ordenacao implements Ordenacao_IF{
 		}
 
 	}
-	
+
 	public void insertionSort(Filme[] filmes) {
 		
 		for(int j=1; j<filmes.length; j++) {

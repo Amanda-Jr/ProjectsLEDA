@@ -23,7 +23,7 @@ public class Filme implements Filme_IF{
 	
 	@Override
 	public String toString() {
-		return "Filme [nome=" + nome + ", ano=" + ano + ", nota=" + nota + "]";
+		return  nome + " (" + ano + ") [" + nota + "]";
 	}
 
 	

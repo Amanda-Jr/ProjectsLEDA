@@ -44,24 +44,27 @@ public class Busca implements Busca_IF{
 	}
 
 	@Override
-	public Filme buscaBinaria_iterativa(Filme[] filmes, int nota) {
-    int inicio = 0;
-    int fim = filmes.length - 1;
+	public Filme buscaBinaria_iterativa(Filme[] filmes, int nota) throws NotaOutOfBoundsException{
+		if(nota < 0 || nota > 5) {
+			throw new NotaOutOfBoundsException("\nNota Inválida! Digite uma nota entre 1 e 5.");
+		}
+		int inicio = 0;
+		int fim = filmes.length - 1;
 
-    while (inicio <= fim) {
-        int meio = inicio + (fim - inicio) / 2;
-        if (filmes[meio].getNota() == nota) {
-            return filmes[meio];
-        }
+		while (inicio <= fim) {
+			int meio = inicio + (fim - inicio) / 2;
+			if (filmes[meio].getNota() == nota) {
+				return filmes[meio];
+																					}
 	    
-        if (filmes[meio].getNota() > nota) {
-            inicio = meio + 1;
-        } else {
-            fim = meio - 1;
-        }
-    }
-    return null;
-}
+			if (filmes[meio].getNota() > nota) {
+				inicio = meio + 1;
+			} else {
+				fim = meio - 1;
+			}
+		}
+		return null;
+	}
 
 
 	@Override
@@ -95,9 +98,9 @@ public class Busca implements Busca_IF{
 	public Filme buscaLinear_iterativa_duasPontas(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
 		int inicio = 0;
         int fim = filmes.length - 1;
-        if (nota < 1 || nota > 5) {
-            throw new NotaOutOfBoundsException("Nota " + nota + " fora dos limites permitidos (1-5).");
-        }
+        if(nota < 0 || nota > 5) {
+			throw new NotaOutOfBoundsException("\nNota Inválida! Digite uma nota entre 1 e 5.");
+		}
         while (inicio <= fim) {
             if (filmes[inicio].getNota() == nota) {
                 return filmes[inicio];
