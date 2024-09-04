@@ -45,23 +45,24 @@ public class Busca implements Busca_IF{
 
 	@Override
 	public Filme buscaBinaria_iterativa(Filme[] filmes, int nota) {
-		int inicio = 0;
-        int fim = filmes.length - 1;
+    int inicio = 0;
+    int fim = filmes.length - 1;
 
-        while (inicio <= fim) {
-            int meio = inicio + (fim - inicio) / 2;
-            if (filmes[meio].getNota() == nota) {
-                return filmes[meio];
-            }
-            if (filmes[meio].getNota() < nota) {
-                inicio = meio + 1;
-            }
-            else {
-                fim = meio - 1;
-            }
+    while (inicio <= fim) {
+        int meio = inicio + (fim - inicio) / 2;
+        if (filmes[meio].getNota() == nota) {
+            return filmes[meio];
         }
-		return null;
-	}
+	    
+        if (filmes[meio].getNota() > nota) {
+            inicio = meio + 1;
+        } else {
+            fim = meio - 1;
+        }
+    }
+    return null;
+}
+
 
 	@Override
 	public Filme buscaBinaria_recursiva(Filme[] filmes, int nota) throws NotaOutOfBoundsException {
