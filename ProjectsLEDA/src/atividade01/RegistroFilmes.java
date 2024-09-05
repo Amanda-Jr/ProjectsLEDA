@@ -30,10 +30,12 @@ public class RegistroFilmes {
 		}
 		
 		Ordenacao ordenacao = new Ordenacao();
+		//ordenacao.bubbleSort(filmes);
+		ordenacao.insertionSort(filmes);
 		//ordenacao.quickSort(filmes);
 		//ordenacao.quickSortRandom(filmes);
 		//ordenacao.insertionSort(filmes);
-		ordenacao.mergeSort(filmes);
+		//ordenacao.mergeSort(filmes);
 		//ordenacao.countingSort(filmes);
 		
 		Busca_IF busca = new Busca();

@@ -181,14 +181,30 @@ public class Ordenacao implements Ordenacao_IF{
 
 	@Override
 	public void bubbleSort(Filme[] filmes) {
-		// TODO Auto-generated method stub
+		int n = filmes.length - 1;
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<n-i; j++) {
+				if(filmes[j].compareTo(filmes[j+1]) > 0) {
+					swap(filmes, j, j+1);
+				}
+			}
+		}
 		
 	}
 
 
 	@Override
 	public void selectionSort(Filme[] filmes) {
-		// TODO Auto-generated method stub
+		int n = filmes.length - 1;
+		for(int i=0; i<n; i++) {
+			int min = i;
+			for(int j=i+1; j<n; j++) {
+				if(filmes[j].compareTo(filmes[min]) < 0) {
+					min = j;
+				}
+			}
+			swap(filmes, i, min);
+		}
 		
 	}
 	
