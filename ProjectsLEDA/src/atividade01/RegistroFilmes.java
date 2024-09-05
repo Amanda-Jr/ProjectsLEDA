@@ -30,16 +30,16 @@ public class RegistroFilmes {
 		}
 		
 		Ordenacao ordenacao = new Ordenacao();
-		//ordenacao.quickSort(filmes.clone());
-		//ordenacao.quickSortRandom(filmes.clone());
-		//ordenacao.insertionSort(filmes.clone());
+		//ordenacao.quickSort(filmes);
+		//ordenacao.quickSortRandom(filmes);
+		//ordenacao.insertionSort(filmes);
 		ordenacao.mergeSort(filmes);
-		//ordenacao.countingSort(filmes.clone());
+		//ordenacao.countingSort(filmes);
 		
 		Busca_IF busca = new Busca();
 		Filme filmeEncontrado;
 		
-		if(busca.checaVetorOrdenado(filmes.clone())) {
+		if(ordenacao.checaVetorOrdenado(filmes.clone())) {
 			System.out.println("\nLista Ordenada:");
 			
 			for (Filme f : filmes) {
