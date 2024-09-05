@@ -39,7 +39,7 @@ public class RegistroFilmes {
 		Busca_IF busca = new Busca();
 		Filme filmeEncontrado;
 		
-		if(ordenacao.checaVetorOrdenado(filmes.clone())) {
+		if(busca.checaVetorOrdenado(filmes.clone())) {
 			System.out.println("\nLista Ordenada:");
 			
 			for (Filme f : filmes) {
@@ -48,7 +48,7 @@ public class RegistroFilmes {
 			
 			try {
 					
-				filmeEncontrado = busca.buscaLinear_iterativa(filmes, 4);
+				filmeEncontrado = busca.buscaLinear_iterativa(filmes, 5);
 				//filmeEncontrado = busca.buscaLinear_recursiva(filmes, 2);
 				//filmeEncontrado = busca.buscaBinaria_iterativa(filmes, -1);
 				//filmeEncontrado = busca.buscaBinaria_recursiva(filmes, 1);

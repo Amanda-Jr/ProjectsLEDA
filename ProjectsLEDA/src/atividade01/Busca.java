@@ -4,8 +4,14 @@ public class Busca implements Busca_IF{
 	
 	@Override
 	public boolean checaVetorOrdenado(Filme[] filmes) {
-		// TODO Auto-generated method stub
-		return false;
+
+		for(int i=1; i<filmes.length-1; i++) {
+			if(filmes[i].compareTo(filmes[i-1]) < 0) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	@Override
