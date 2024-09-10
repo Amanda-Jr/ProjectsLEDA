@@ -30,7 +30,7 @@ public class RegistroFilmes {
 
 	public static void main(String[] args) {
 		
-		System.out.println("\nLista Original:");
+		
 		
 		final int tamanho = 10;
 		Filme[] filmes = new Filme[tamanho];
@@ -38,26 +38,24 @@ public class RegistroFilmes {
 		for(int i=0; i<tamanho; i++) {
 			Filme filmeAleatorio = gerarFilmeAleatorio();
 			filmes[i] = filmeAleatorio;
-			
 		}
 		
-		//Filme[] filmes = {f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, filmeAleatorio};
 		
 		Filme[] filmesClone = filmes.clone();
 		
-		
+		System.out.println("\nLista Original:");
 		for (Filme f : filmesClone) {
 			System.out.println(f);
 		}
 		
 		Ordenacao ordenacao = new Ordenacao();
-		ordenacao.bubbleSort(filmesClone);
-		//ordenacao.selectionSort(filmes);
-		//ordenacao.quickSort(filmes);
-		//ordenacao.quickSortRandom(filmes);
-		//ordenacao.insertionSort(filmes);
-		//ordenacao.mergeSort(filmes);
-		//ordenacao.countingSort(filmes);
+		//ordenacao.bubbleSort(filmesClone);
+		//ordenacao.selectionSort(filmesClone);
+		//ordenacao.quickSort(filmesClone);
+		//ordenacao.quickSortRandom(filmesClone);
+		//ordenacao.insertionSort(filmesClone);
+		//ordenacao.mergeSort(filmesClone);
+		ordenacao.countingSort(filmesClone);
 		
 		Busca_IF busca = new Busca();
 		Filme filmeEncontrado;
@@ -72,10 +70,10 @@ public class RegistroFilmes {
 			try {
 					
 				filmeEncontrado = busca.buscaLinear_iterativa(filmesClone, 4);
-				//filmeEncontrado = busca.buscaLinear_recursiva(filmes, 2);
-				//filmeEncontrado = busca.buscaBinaria_iterativa(filmes, -1);
-				//filmeEncontrado = busca.buscaBinaria_recursiva(filmes, 1);
-				//filmeEncontrado = busca.buscaLinear_iterativa_duasPontas(filmes, 2);
+				//filmeEncontrado = busca.buscaLinear_recursiva(filmesClone, 2);
+				//filmeEncontrado = busca.buscaBinaria_iterativa(filmesClone, 5);
+				//filmeEncontrado = busca.buscaBinaria_recursiva(filmesClone, 1);
+				//filmeEncontrado = busca.buscaLinear_iterativa_duasPontas(filmesClone, 3);
 					
 				if(filmeEncontrado != null) {
 					System.out.println("\nFilme encontrado: " + filmeEncontrado);
