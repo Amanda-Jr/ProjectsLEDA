@@ -32,8 +32,9 @@ public class RegistroFilmes {
     
 	public static void main(String[] args) {
 		
-		long tempoInicial;
-		final int tamanho = 14000;
+		long tempoInicial = 0;
+		long tempoFinal = 0;
+		final int tamanho = 22000;
 		Filme[] filmes = new Filme[tamanho];
 		
 		for(int i=0; i<tamanho; i++) {
@@ -44,10 +45,6 @@ public class RegistroFilmes {
 		
 		Filme[] filmesClone = filmes.clone();
 		
-		System.out.println("\nLista Original:");
-		for (Filme f : filmesClone) {
-			System.out.println(f);
-		}
 		
 		Ordenacao ordenacao = new Ordenacao();
 		//ordenacao.bubbleSort(filmesClone);
@@ -63,42 +60,38 @@ public class RegistroFilmes {
 		Busca_IF busca = new Busca();
 		Filme filmeEncontrado;
 		
-		
-		if(ordenacao.checaVetorOrdenado(filmesClone)) {
-			tempoInicial = System.nanoTime();
+		for(int i=0; i<10; i++) {
+			long tIni = System.nanoTime();
+			tempoInicial = tempoInicial + tIni;
 			
-		}
-		
-		
-		tempoInicial = System.nanoTime();
-		if(ordenacao.checaVetorOrdenado(filmesClone)) {
-			
-			try {
+			if(ordenacao.checaVetorOrdenado(filmesClone)) {
+				
+				try {
+						
+					filmeEncontrado = busca.buscaLinear_iterativa(filmesClone, 4);
+					//filmeEncontrado = busca.buscaLinear_recursiva(filmesClone, 2);
+					//filmeEncontrado = busca.buscaBinaria_iterativa(filmesClone, 5);
+					//filmeEncontrado = busca.buscaBinaria_recursiva(filmesClone, 1);
+					//filmeEncontrado = busca.buscaLinear_iterativa_duasPontas(filmesClone, 3);
+						
 					
-				filmeEncontrado = busca.buscaLinear_iterativa(filmesClone, 4);
-				//filmeEncontrado = busca.buscaLinear_recursiva(filmesClone, 2);
-				//filmeEncontrado = busca.buscaBinaria_iterativa(filmesClone, 5);
-				//filmeEncontrado = busca.buscaBinaria_recursiva(filmesClone, 1);
-				//filmeEncontrado = busca.buscaLinear_iterativa_duasPontas(filmesClone, 3);
-					
-				if(filmeEncontrado != null) {
-					System.out.println("\nFilme encontrado: " + filmeEncontrado);
-				}else {
-					System.out.println("\nFilme não encontrado");
+						
+				} catch (NotaOutOfBoundsException e) {
+					System.err.println(e.getMessage());
 				}
-					
-			} catch (NotaOutOfBoundsException e) {
-				System.err.println(e.getMessage());
-			}
 
-		} else {
-			System.out.println("--------------------------------");
-			for (Filme f : filmesClone) {
-				System.out.println(f);
+			} else {
+				System.out.println("--------------------------------");
+				
 			}
+			
+			long tFim = System.nanoTime();
+			tempoFinal = tempoFinal + tFim;
 		}
 		
-		System.out.println((System.nanoTime() - tempoInicial)/1000000000.0);
+		
+		
+		System.out.println((tempoFinal - tempoInicial)/10000000000.0);
 
 		
 		
