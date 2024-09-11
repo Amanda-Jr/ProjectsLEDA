@@ -28,9 +28,9 @@ public class RegistroFilmes {
         return new Filme(nome, nota, ano);
     }
 
+    
+    
 	public static void main(String[] args) {
-		
-		
 		
 		final int tamanho = 10;
 		Filme[] filmes = new Filme[tamanho];
@@ -60,7 +60,7 @@ public class RegistroFilmes {
 		Busca_IF busca = new Busca();
 		Filme filmeEncontrado;
 		
-		if(ordenacao.checaVetorOrdenado(filmesClone)) {
+		if(ordenacao.checaVetorOrdenadoCounting(filmesClone)) {
 			System.out.println("\nLista Ordenada:");
 			
 			for (Filme f : filmesClone) {

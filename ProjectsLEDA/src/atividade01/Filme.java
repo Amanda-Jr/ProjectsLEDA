@@ -22,6 +22,13 @@ public class Filme implements Filme_IF{
     	}
 	}
 	
+	public int compareToNota(Filme_IF outro_filme) {
+    	if (this.nota != outro_filme.getNota()) {
+    		return -1 * Integer.compare(this.nota, outro_filme.getNota());
+    	} 
+    	return 0;
+	}
+	
 	@Override
 	public String toString() {
 		return  nome + " (" + ano + ") [" + nota + "]";

@@ -16,6 +16,17 @@ public class Ordenacao implements Ordenacao_IF{
 		
 		return true;
 	}
+	
+	public boolean checaVetorOrdenadoCounting(Filme[] filmes) {
+		
+		for(int i=1; i<filmes.length-1; i++) {
+			if(filmes[i].compareToNota(filmes[i-1]) < 0) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
 
 	
 	private static void embaralhar(Filme[] v) {
