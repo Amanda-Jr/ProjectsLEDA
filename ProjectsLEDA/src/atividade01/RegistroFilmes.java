@@ -58,7 +58,7 @@ public class RegistroFilmes {
 		
 		
 		Busca_IF busca = new Busca();
-		Filme filmeEncontrado;
+		Filme filmeEncontrado = null;
 		
 		for(int i=0; i<10; i++) {
 			long tIni = System.nanoTime();
@@ -85,12 +85,14 @@ public class RegistroFilmes {
 				
 			}
 			
+			
+			
 			long tFim = System.nanoTime();
 			tempoFinal = tempoFinal + tFim;
 		}
 		
 		
-		
+		System.out.println(filmeEncontrado);
 		System.out.println((tempoFinal - tempoInicial)/10000000000.0);
 
 		
