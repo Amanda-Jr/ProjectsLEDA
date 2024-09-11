@@ -32,7 +32,8 @@ public class RegistroFilmes {
     
 	public static void main(String[] args) {
 		
-		final int tamanho = 10;
+		long tempoInicial;
+		final int tamanho = 14000;
 		Filme[] filmes = new Filme[tamanho];
 		
 		for(int i=0; i<tamanho; i++) {
@@ -53,19 +54,24 @@ public class RegistroFilmes {
 		//ordenacao.selectionSort(filmesClone);
 		//ordenacao.quickSort(filmesClone);
 		//ordenacao.quickSortRandom(filmesClone);
-		//ordenacao.insertionSort(filmesClone);
+		ordenacao.insertionSort(filmesClone);
 		//ordenacao.mergeSort(filmesClone);
-		ordenacao.countingSort(filmesClone);
+		//ordenacao.countingSort(filmesClone);
+		
+		
 		
 		Busca_IF busca = new Busca();
 		Filme filmeEncontrado;
 		
-		if(ordenacao.checaVetorOrdenadoCounting(filmesClone)) {
-			System.out.println("\nLista Ordenada:");
+		
+		if(ordenacao.checaVetorOrdenado(filmesClone)) {
+			tempoInicial = System.nanoTime();
 			
-			for (Filme f : filmesClone) {
-				System.out.println(f);
-			}
+		}
+		
+		
+		tempoInicial = System.nanoTime();
+		if(ordenacao.checaVetorOrdenado(filmesClone)) {
 			
 			try {
 					
@@ -92,7 +98,7 @@ public class RegistroFilmes {
 			}
 		}
 		
-		
+		System.out.println((System.nanoTime() - tempoInicial)/1000000000.0);
 
 		
 		
