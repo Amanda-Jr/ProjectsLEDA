@@ -88,6 +88,7 @@ public class RegistroFilmes {
 			
 			
 			long tFim = System.nanoTime();
+			System.out.println((tFim - tIni)/1000000000.0);
 			tempoFinal = tempoFinal + tFim;
 		}
 		
