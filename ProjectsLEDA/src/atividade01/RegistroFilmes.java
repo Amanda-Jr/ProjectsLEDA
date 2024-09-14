@@ -51,10 +51,10 @@ public class RegistroFilmes {
 		//ordenacao.selectionSort(filmesClone);
 		//ordenacao.quickSort(filmesClone);
 		//ordenacao.quickSortRandom(filmesClone);
-		ordenacao.insertionSort(filmesClone);
+		//ordenacao.insertionSort(filmesClone);
 		//ordenacao.mergeSort(filmesClone);
 		//ordenacao.countingSort(filmesClone);
-		
+		ordenacao.insertionSortInverso(filmesClone);
 		
 		
 		Busca_IF busca = new Busca();
@@ -64,7 +64,7 @@ public class RegistroFilmes {
 			long tIni = System.nanoTime();
 			tempoInicial = tempoInicial + tIni;
 			
-			if(ordenacao.checaVetorOrdenado(filmesClone)) {
+			if(ordenacao.checaVetorOrdenadoInverso(filmesClone)) {
 				
 				try {
 						

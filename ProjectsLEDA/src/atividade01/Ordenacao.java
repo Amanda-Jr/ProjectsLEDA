@@ -17,6 +17,18 @@ public class Ordenacao implements Ordenacao_IF{
 		return true;
 	}
 	
+	public boolean checaVetorOrdenadoInverso(Filme[] filmes) {
+		
+		for(int i=1; i<filmes.length-1; i++) {
+			if(filmes[i].compareTo(filmes[i-1]) > 0) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	
 	public boolean checaVetorOrdenadoCounting(Filme[] filmes) {
 		
 		for(int i=1; i<filmes.length-1; i++) {
@@ -202,7 +214,7 @@ public class Ordenacao implements Ordenacao_IF{
 		}
 		
 	}
-
+	
 
 	@Override
 	public void selectionSort(Filme[] filmes) {
@@ -218,6 +230,24 @@ public class Ordenacao implements Ordenacao_IF{
 		}
 		
 	}
+	
+	public void insertionSortInverso(Filme[] filmes) {
+		
+		for(int j=1; j<filmes.length; j++) {
+			Filme key = filmes[j];
+			int i = j-1;
+			
+			while(i>=0 && (filmes[i].compareTo(key) < 0)) {
+				filmes[i+1] = filmes[i];
+				i = i-1;
+			}
+			
+			filmes[i+1] = key;
+		}
+	}
+	
+	
+	
 	
 }
 
