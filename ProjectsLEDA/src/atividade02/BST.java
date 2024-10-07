@@ -34,9 +34,9 @@ public class BST implements BST_IF {
         if (node == null) {
             throw new Exception("Filme não encontrado.");
         }
-        if (id < node.filme.getId()) {
+        if (id < node.filme.getID()) {
             node.left = removeRec(node.left, id);
-        } else if (id > node.filme.getId()) {
+        } else if (id > node.filme.getID()) {
             node.right = removeRec(node.right, id);
         } else {
            
@@ -48,7 +48,7 @@ public class BST implements BST_IF {
 
         
             node.filme = findMin(node.right);
-            node.right = removeRec(node.right, node.filme.getId());
+            node.right = removeRec(node.right, node.filme.getID());
         }
         return node;
     }
@@ -71,9 +71,9 @@ public class BST implements BST_IF {
             node = new Node(elemento);
             return node;
         }
-        if (elemento.getId() < node.filme.getId()) {
+        if (elemento.getID() < node.filme.getID()) {
             node.left = insertRec(node.left, elemento);
-        } else if (elemento.getId() > node.filme.getId()) {
+        } else if (elemento.getID() > node.filme.getID()) {
             node.right = insertRec(node.right, elemento);
         }
         return node;
@@ -94,10 +94,10 @@ public class BST implements BST_IF {
     }
 
     private Node searchRec(Node node, long id) {
-        if (node == null || node.filme.getId() == id) {
+        if (node == null || node.filme.getID() == id) {
             return node;
         }
-        if (id < node.filme.getId()) {
+        if (id < node.filme.getID()) {
             return searchRec(node.left, id);
         }
         return searchRec(node.right, id);
@@ -149,8 +149,22 @@ public class BST implements BST_IF {
         List<Filme_IF> list = new ArrayList<>();
         preOrderRec(root, list);
         return list.toArray(new Filme_IF[0]);
-    }
+    } 
 
     private void preOrderRec(Node node, List<Filme_IF> list) {
         if (node != null) {
-            list.add(node.filme);
+            list.add(node.filme);}
+    }
+
+	@Override
+	public Filme_IF[] order() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Filme_IF[] postOrder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
