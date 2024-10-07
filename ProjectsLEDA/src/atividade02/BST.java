@@ -79,3 +79,78 @@ public class BST implements BST_IF {
         return node;
     }
 
+   @Override
+    public boolean isEmpty() {
+        return root == null;
+    }
+
+    @Override
+    public Filme_IF search(long id) throws Exception {
+        Node node = searchRec(root, id);
+        if (node == null) {
+            throw new Exception("Filme não encontrado.");
+        }
+        return node.filme;
+    }
+
+    private Node searchRec(Node node, long id) {
+        if (node == null || node.filme.getId() == id) {
+            return node;
+        }
+        if (id < node.filme.getId()) {
+            return searchRec(node.left, id);
+        }
+        return searchRec(node.right, id);
+    }
+
+    @Override
+    public Filme_IF root() throws Exception {
+        if (root == null) {
+            throw new Exception("Árvore vazia.");
+        }
+        return root.filme;
+    }
+
+    @Override
+    public int height() {
+        return heightRec(root);
+    }
+
+    private int heightRec(Node node) {
+        if (node == null) {
+            return -1;
+        }
+        return 1 + Math.max(heightRec(node.left), heightRec(node.right));
+    }
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public boolean isComplete() {
+        return isCompleteRec(root, 0, size);
+    }
+
+    private boolean isCompleteRec(Node node, int index, int numberNodes) {
+        if (node == null) {
+            return true;
+        }
+        if (index >= numberNodes) {
+            return false;
+        }
+        return isCompleteRec(node.left, 2 * index + 1, numberNodes) &&
+               isCompleteRec(node.right, 2 * index + 2, numberNodes);
+    }
+
+    @Override
+    public Filme_IF[] preOrder() {
+        List<Filme_IF> list = new ArrayList<>();
+        preOrderRec(root, list);
+        return list.toArray(new Filme_IF[0]);
+    }
+
+    private void preOrderRec(Node node, List<Filme_IF> list) {
+        if (node != null) {
+            list.add(node.filme);
