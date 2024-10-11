@@ -80,5 +80,12 @@ public class Filme implements Filme_IF{
 		this.ano = ano;
 		
 	}
+
+	@Override
+	public String toString() {
+		return  nome + " (" + ano + ") [" + nota + "] ID: " + ID ;
+	}
+	
+	
 	
 }
