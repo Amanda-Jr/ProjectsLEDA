@@ -36,14 +36,6 @@ public class Filme implements Filme_IF{
     	return 0;
 	}
 	
-	public int compareToID(Filme_IF outro_filme) {
-		if(this.ID != outro_filme.getID()) {
-			return Long.compare(this.ID, outro_filme.getID());
-		} 
-    	return 0;
-	}
-	
-	
 	
 	@Override
 	public long getID() {
