@@ -43,44 +43,49 @@ public class Filme implements Filme_IF{
     	return 0;
 	}
 	
+	
+	
 	@Override
 	public long getID() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.ID;
 	}
+	
 	@Override
 	public void setID(long ID) {
-		// TODO Auto-generated method stub
+		this.ID = ID;
 		
 	}
+	
 	@Override
 	public String getNome() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.nome;
 	}
+	
 	@Override
 	public void setNome(String nome) {
-		// TODO Auto-generated method stub
+		this.nome = nome;
 		
 	}
+	
 	@Override
 	public int getNota() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.nota;
 	}
+	
 	@Override
 	public void setNota(int nota) {
-		// TODO Auto-generated method stub
+		this.nota = nota;
 		
 	}
+	
 	@Override
 	public int getAno() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.ano;
 	}
+	
 	@Override
 	public void setAno(int ano) {
-		// TODO Auto-generated method stub
+		this.ano = ano;
 		
 	}
 	
