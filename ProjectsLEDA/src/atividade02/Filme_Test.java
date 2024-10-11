@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 
-
 public class Filme_Test {
 	
 	@Test
@@ -33,7 +32,6 @@ public class Filme_Test {
         
         assertEquals(0, f10.compareTo(f10));
         assertEquals(0, f8.compareTo(f8));
-        
         
 	}
 	
