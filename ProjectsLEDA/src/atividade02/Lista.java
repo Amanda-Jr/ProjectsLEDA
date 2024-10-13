@@ -4,7 +4,7 @@ public class Lista implements Lista_IF{
 
 	@Override
 	public Filme_IF remove(long id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
