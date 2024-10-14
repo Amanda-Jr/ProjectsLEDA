@@ -2,10 +2,20 @@ package atividade02;
 
 public class NoLista {
 	
-	private Filme valor;
+	private Filme_IF valor;
 	private NoLista prox;
 	private NoLista ant;
 	
+	public NoLista() {
+		
+	}
+	
+	public NoLista(Filme_IF valor) {
+		this.valor = valor;
+		prox = null;
+		ant = null;
+	}
+
 	public boolean isNil() {
 		if(valor == null) {
 			return true;
@@ -14,11 +24,11 @@ public class NoLista {
 		return false;
 	}
 
-	public Filme getValor() {
+	public Filme_IF getValor() {
 		return valor;
 	}
 
-	public void setValor(Filme valor) {
+	public void setValor(Filme_IF valor) {
 		this.valor = valor;
 	}
 
@@ -36,6 +46,11 @@ public class NoLista {
 
 	public void setAnt(NoLista ant) {
 		this.ant = ant;
+	}
+
+	@Override
+	public String toString() {
+		return "NoLista [valor=" + valor + ", prox=" + prox + ", ant=" + ant + "]";
 	}
 	
 	

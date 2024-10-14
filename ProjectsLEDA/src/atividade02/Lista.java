@@ -6,7 +6,25 @@ public class Lista implements Lista_IF{
 	private int tam;
 	
 	Lista(){
+		ini = new NoLista();
+		fim = ini;
 		tam = 0;
+	}
+	
+	@Override
+	public void insert(Filme_IF elemento) {
+		NoLista nill = new NoLista();
+		
+		NoLista noIni = new NoLista(elemento);
+		noIni.setProx(ini); 
+		noIni.setAnt(nill);
+		ini.setAnt(noIni);
+		
+		
+		if(ini.isNil()) { //lista vazia
+			fim = noIni;
+		}
+		ini = noIni;
 	}
 
 	@Override
@@ -15,15 +33,13 @@ public class Lista implements Lista_IF{
 		return null;
 	}
 
-	@Override
-	public void insert(Filme_IF elemento) {
-		
-		
-	}
+
 
 	@Override
 	public boolean isEmpty() {
-		
+		if(ini==null) {
+			return true;
+		}
 		return false;
 	}
 
@@ -33,7 +49,7 @@ public class Lista implements Lista_IF{
 		return null;
 	}
 
-	@Override
+	@Override  
 	public Filme_IF head() throws Exception {
 		
 		return null;
