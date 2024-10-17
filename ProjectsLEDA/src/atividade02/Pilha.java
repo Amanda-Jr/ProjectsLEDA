@@ -1,29 +1,34 @@
 package atividade02;
 
 public class Pilha implements Pilha_IF{
-
+	
+	Lista lista = new Lista();
+	
+	public Pilha() {
+		
+	}
+	
 	@Override
 	public Filme_IF pop() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return lista.remove(lista.head().getID());
 	}
+	
 
 	@Override
 	public void push(Filme_IF elemento) {
-		// TODO Auto-generated method stub
+		lista.insert(elemento);
 		
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return lista.isEmpty();
 	}
 
 	@Override
 	public Filme_IF top() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return lista.head();
 	}
-
+	
 }
