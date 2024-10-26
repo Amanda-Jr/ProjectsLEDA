@@ -65,7 +65,6 @@ private final Lista_IF lista = new Lista();
 		assertEquals(filmes[3], lista.search(8)); // id filmes[3] == 8 
 		assertNotEquals(filmes[3], lista.search(3));
 		
-		
 	}
 	
 	
