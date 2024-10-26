@@ -43,7 +43,6 @@ private final Lista_IF lista = new Lista();
 		assertNotEquals(filmes[0], removido);
 		assertEquals(filmes[1], removido);
 		
-		
 	}
 	
 	
