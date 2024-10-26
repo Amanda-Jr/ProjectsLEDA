@@ -89,7 +89,7 @@ public class Lista implements Lista_IF{
 	public Filme_IF tail() throws Exception {
 		
 		if(fim.isNil()) { 
-			throw new NilException("Lista vazia, o Inicio nao pode ser retornado");
+			throw new NilException("Lista vazia, o Fim nao pode ser retornado");
 		}
 		return fim.getValor();
 	}

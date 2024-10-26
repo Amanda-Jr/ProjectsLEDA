@@ -2,6 +2,8 @@ package atividade02;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
@@ -49,8 +51,37 @@ private final Lista_IF lista = new Lista();
 	@Test(expected = Exception.class)
 	public void testRemoverExcecao() throws Exception {
 		Filme_IF removido1 = lista.remove(5);
+	}
+	
+	@Test
+	public void testBusca() throws Exception {
+		lista.insert(filmes[2]);
+		lista.insert(filmes[3]);
+		lista.insert(filmes[4]);
+		lista.insert(filmes[5]);
+		lista.insert(filmes[0]);
+		lista.insert(filmes[1]);
+		
+		assertEquals(filmes[3], lista.search(8)); // id filmes[3] == 8 
+		assertNotEquals(filmes[3], lista.search(3));
+		
 		
 	}
 	
 	
+	@Test(expected = Exception.class)
+	public void testBuscaExcecao() throws Exception {
+		
+		lista.insert(filmes[0]); // id = 1
+		lista.insert(filmes[1]); // id = 3
+		lista.insert(filmes[2]); // id = 5
+		lista.insert(filmes[3]); // id = 8
+		lista.insert(filmes[4]); // id = 2
+		lista.insert(filmes[5]); // id = 6
+		
+		lista.search(4);
+
+	}
+	
 }
+
