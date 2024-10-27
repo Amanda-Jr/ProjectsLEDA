@@ -1,4 +1,4 @@
-package atividade01;
+ package atividade01;
 
 public interface Busca_IF {
 	
