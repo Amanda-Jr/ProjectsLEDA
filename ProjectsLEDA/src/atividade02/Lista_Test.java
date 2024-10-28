@@ -2,13 +2,12 @@ package atividade02;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 public class Lista_Test {
-private final Lista_IF lista = new Lista();
+private final Lista lista = new Lista();
 	
 	private Filme_IF[] filmes = {
 		new Filme("A", 5, 2020, 1),
@@ -81,6 +80,58 @@ private final Lista_IF lista = new Lista();
 		lista.search(4);
 
 	}
+	
+	@Test
+	public void testReturnHead() throws Exception {
+		lista.insert(filmes[0]); // id = 1
+		lista.insert(filmes[1]); // id = 3
+		lista.insert(filmes[2]); // id = 5
+		lista.insert(filmes[3]); // id = 8
+		lista.insert(filmes[4]); // id = 2
+		lista.insert(filmes[5]); // id = 6
+		
+		assertEquals(filmes[5], lista.head());
+		
+	}
+	
+	@Test
+	public void testReturnTail() throws Exception {
+		lista.insert(filmes[0]); // id = 1
+		lista.insert(filmes[1]); // id = 3
+		lista.insert(filmes[2]); // id = 5
+		lista.insert(filmes[3]); // id = 8
+		lista.insert(filmes[4]); // id = 2
+		lista.insert(filmes[5]); // id = 6
+		
+		assertEquals(filmes[0], lista.tail());
+		
+	}
+	
+	@Test
+	public void testInicioIsNill() throws Exception {
+		assertTrue(lista.getIni().isNil());
+	}
+	
+	@Test
+	public void testFimIsNill() throws Exception {
+		assertTrue(lista.getFim().isNil());
+	}
+	
+	
+	@Test(expected = Exception.class)
+	public void testInicioIsNillExcecao() throws Exception {
+		lista.head();
+
+	}
+	
+	@Test(expected = Exception.class)
+	public void testFimIsNillExcecao() throws Exception {
+		lista.tail();
+
+	}
+	
+	
+	
 	
 }
 

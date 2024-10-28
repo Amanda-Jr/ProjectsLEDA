@@ -100,7 +100,7 @@ public class Lista implements Lista_IF{
 	}
 	
 	
-
+	
 	public NoLista getIni() {
 		return ini;
 	}
