@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class Lista_Test {
-private final Lista lista = new Lista();
+	private final Lista lista = new Lista();
 	
 	private Filme_IF[] filmes = {
 		new Filme("A", 5, 2020, 1),
@@ -130,7 +130,10 @@ private final Lista lista = new Lista();
 
 	}
 	
-	
+	@Test 
+	public void testImprimir() {
+		lista.toString();
+	}
 	
 	
 }
