@@ -14,11 +14,11 @@ public class Fila implements Fila_IF{
 	@Override
 	public Filme_IF dequeue() throws Exception {
 		while(!p1.isEmpty()) {
-			p2.push(p1.top());
+			p2.push(p1.pop());
 		}
 		Filme_IF removido = p2.pop();
 		while(!p2.isEmpty()) {
-			p1.push(p2.top());
+			p1.push(p2.pop());
 		}
 		return removido;
 	}

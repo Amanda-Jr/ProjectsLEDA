@@ -40,7 +40,7 @@ public class Fila_Test {
 		fila.enqueue(filmes[0]);
 		fila.enqueue(filmes[1]);
 		
-		assertEquals(filmes[1], fila.dequeue());
+		assertEquals(filmes[0], fila.dequeue());
 		
 		
 	}
