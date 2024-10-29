@@ -34,23 +34,23 @@ public class Fila_Test {
 		
 	}
 	
-	/*
+	
 	@Test
 	public void testRemover() throws Exception {
 		fila.enqueue(filmes[0]);
 		fila.enqueue(filmes[1]);
 		
-		assertNotEquals(filmes[0], fila.dequeue());
+		assertEquals(filmes[1], fila.dequeue());
 		
 		
 	}
 	
+	
 	@Test(expected = Exception.class)
 	public void testRemoverExcecao() throws Exception {
-		
-		
+		fila.dequeue();
 	}
-	*/
+	
 	
 	
 	

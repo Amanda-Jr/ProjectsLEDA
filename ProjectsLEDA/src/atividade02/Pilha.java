@@ -17,7 +17,6 @@ public class Pilha implements Pilha_IF{
 	@Override
 	public void push(Filme_IF elemento) {
 		lista.insert(elemento);
-		
 	}
 
 	@Override
