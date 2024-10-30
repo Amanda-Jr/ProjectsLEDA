@@ -36,16 +36,69 @@ public class AVL_Test {
 	}
 	
 	@Test
-	public void testRemover() throws Exception {
+	public void testRemoverFilmeId4() throws Exception {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[6]); // id = 4
+		
+		Filme_IF removido = avl.remove(4);
+		
+		assertNotEquals(filmes[4], removido);
+		assertEquals(filmes[6], removido); 
+		
+	}
+	
+	@Test
+	public void testRemoverFilmeId3() throws Exception {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[7]); // id = 7
+		avl.insert(filmes[8]); // id = 9
+		avl.insert(filmes[9]); // id = 10
+		
+		Filme_IF removido = avl.remove(3);
+		
+		assertNotEquals(filmes[3], removido);
+		assertEquals(filmes[1], removido); //erro: esperado filmes[1], retornado filmes[6]
+		
+	}
+	
+	@Test
+	public void testRemoverFilmeId2() throws Exception {
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[7]); // id = 7
+		
+		Filme_IF removido = avl.remove(2);
+		
+		assertNotEquals(filmes[2], removido);
+		assertEquals(filmes[4], removido);
+		
+	}
+	
+	
+	@Test
+	public void testRemoverFilmeId1() throws Exception {
 		avl.insert(filmes[0]); // id = 1
 		avl.insert(filmes[1]); // id = 3
 		avl.insert(filmes[2]); // id = 5
 		avl.insert(filmes[3]); // id = 8
 		
-		Filme_IF removido = avl.remove(3);
+		Filme_IF removido = avl.remove(1);
 		
-		assertNotEquals(filmes[3], removido);
-		assertEquals(filmes[1], removido); //erro ao remover elemento existente
+		assertNotEquals(filmes[1], removido);
+		assertEquals(filmes[0], removido); 
 		
 	}
 	

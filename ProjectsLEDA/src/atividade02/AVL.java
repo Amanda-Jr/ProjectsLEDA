@@ -32,20 +32,19 @@ public class AVL implements BST_IF {
 
 private Node remove(Node node, long id, Filme_IF[] removedElement) {
     if (node == null) return null;
-
-    if (id < node.elemento.getId()) {
+    if (id < node.filme.getID() ) {
         node.left = remove(node.left, id, removedElement);
-    } else if (id > node.elemento.getId()) {
+    } else if (id > node.filme.getID()) {
         node.right = remove(node.right, id, removedElement);
     } else {
-        removedElement[0] = node.elemento;  // Salva o elemento a ser removido
+        removedElement[0] = node.filme;  // Salva o elemento a ser removido
 
         if (node.left == null || node.right == null) {
             node = (node.left != null) ? node.left : node.right;
         } else {
             Node temp = getMinValueNode(node.right);
-            node.elemento = temp.elemento;
-            node.right = remove(node.right, temp.elemento.getId(), removedElement);
+            node.filme = temp.filme;
+            node.right = remove(node.right, temp.filme.getID(), removedElement);
         }
     }
 
