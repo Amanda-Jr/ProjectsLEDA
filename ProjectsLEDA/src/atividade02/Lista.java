@@ -95,45 +95,61 @@ public class Lista implements Lista_IF{
 		return fim.getValor();
 	}
 	
-	public void ordenarMergeSort(Lista filmes) {
-		int n = filmes.tam;
+	
+	public Filme_IF[] toArray() {
+		Filme_IF[] filmes = new Filme_IF[tam];
+		
+		NoLista aux = ini;
+		int cont = 0;
+		while(!(aux.isNil())){
+			filmes[cont] = aux.getValor();
+			aux = aux.getProx();
+			cont++;
+		}
+		return filmes;
+	}
+	
+	public void ordernar() {
+		Filme_IF[] filmes = toArray();
+		mergeSort(filmes);
+		
+		for(int i=0; i<filmes.length; i++) {
+			System.out.println(filmes[i]);
+		}
+	}
+	
+	public void mergeSort(Filme_IF[] filmes) {
+		int n = filmes.length;
 		if(n==1) {
 			return;
 		} 
 		
 		int meio = n/2;
-		Lista left = new Lista();
-		Lista right = new Lista();
+		Filme_IF[] left = new Filme_IF[meio];
+		Filme_IF[] right = new Filme_IF[n- meio];
 		
-		NoLista auxL = filmes.ini;
 		for(int i=0; i<meio; i++) {
-			left.insert(auxL.getValor());
-			auxL = auxL.getProx();
+			left[i] = filmes[i];
 		}
-		
-		NoLista auxR = auxL.getProx();
 		
 		for(int i=meio; i<n; i++) {
-			right.insert(auxR.getValor());
-			auxR = auxR.getProx();
+			right[i - meio] = filmes[i];
 		}
 		
-		ordenarMergeSort(left);
-		ordenarMergeSort(right);
+		mergeSort(left);
+		mergeSort(right);
 		
 		mergeTwoSortedLists(filmes, left, right);
 		
 	}
 	
-	public void mergeTwoSortedLists(Lista filmes, Lista left, Lista right) {
-		int leftSize = left.tam;
-		int rightSize = right.tam;
+	public void mergeTwoSortedLists(Filme_IF[] filmes, Filme_IF[] left, Filme_IF[] right) {
+		int leftSize = left.length;
+		int rightSize = right.length;
 		
 		int i=0, j=0, k=0;
 		
 		while(i<leftSize && j < rightSize ) {
-			
-			
 			
 			if(left[i].compareTo(right[j]) <= -1) {
 				filmes[k] = left[i];
@@ -160,8 +176,11 @@ public class Lista implements Lista_IF{
 		}
 		
 		
-		
 	}
+		
+		
+		
+	
 
 	@Override
 	public int size() {

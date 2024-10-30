@@ -1,5 +1,6 @@
 package atividade02;
 
+
 public class Filme implements Filme_IF{
 	private String nome;
 	private int ano, nota;
@@ -27,6 +28,17 @@ public class Filme implements Filme_IF{
     		return this.nome.compareTo(outro_filme.getNome());
     	}
 		
+	}
+	
+	public boolean checaVetorOrdenado(Filme_IF[] filmes) {
+		
+		for(int i=1; i<filmes.length-1; i++) {
+			if(filmes[i].compareTo(filmes[i-1]) < 0) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	public int compareToNota(Filme_IF outro_filme) {

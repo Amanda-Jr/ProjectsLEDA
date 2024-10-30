@@ -22,6 +22,9 @@ public class Main {
 		l.insert(f1);
 		l.insert(f2);
 		l.insert(f3);
+		l.insert(f1);
+		l.insert(f2);
+		l.insert(f3);
 		
 		p.push(f1);
 		p.push(f2);
@@ -38,7 +41,8 @@ public class Main {
 		p.print();
 		System.out.println("");
 		f.print();
-		
+		System.out.println("\nlista ordenada");
+		l.ordernar();
 		
 		
 		
