@@ -1,5 +1,6 @@
 package atividade02;
 
+
 public class Lista implements Lista_IF{
 	private NoLista ini;
 	private NoLista fim;
@@ -93,13 +94,87 @@ public class Lista implements Lista_IF{
 		}
 		return fim.getValor();
 	}
+	
+	public void ordenarMergeSort(Lista filmes) {
+		int n = filmes.tam;
+		if(n==1) {
+			return;
+		} 
+		
+		int meio = n/2;
+		Lista left = new Lista();
+		Lista right = new Lista();
+		
+		NoLista auxL = filmes.ini;
+		for(int i=0; i<meio; i++) {
+			left.insert(auxL.getValor());
+			auxL = auxL.getProx();
+		}
+		
+		NoLista auxR = auxL.getProx();
+		
+		for(int i=meio; i<n; i++) {
+			right.insert(auxR.getValor());
+			auxR = auxR.getProx();
+		}
+		
+		ordenarMergeSort(left);
+		ordenarMergeSort(right);
+		
+		mergeTwoSortedLists(filmes, left, right);
+		
+	}
+	
+	public void mergeTwoSortedLists(Lista filmes, Lista left, Lista right) {
+		int leftSize = left.tam;
+		int rightSize = right.tam;
+		
+		int i=0, j=0, k=0;
+		
+		while(i<leftSize && j < rightSize ) {
+			
+			
+			
+			if(left[i].compareTo(right[j]) <= -1) {
+				filmes[k] = left[i];
+				i++;
+			}
+			else {
+				filmes[k] = right[j];
+				j++;
+			}
+			
+			k++;
+		}
+		
+		while(i<leftSize) {
+			filmes[k] = left[i];
+			i++;
+			k++;
+		}
+		
+		while(j<rightSize) {
+			filmes[k] = right[j];
+			j++;
+			k++;
+		}
+		
+		
+		
+	}
 
 	@Override
 	public int size() {
 		return tam;
 	}
 	
-	
+	public void print() {
+		NoLista aux = fim;
+		for(int i=0; i<tam; i++) {
+			System.out.println(aux);
+			aux = aux.getAnt();
+		}
+	}
 	
 	public NoLista getIni() {
 		return ini;
@@ -124,6 +199,8 @@ public class Lista implements Lista_IF{
 	public void setTam(int tam) {
 		this.tam = tam;
 	}
+
+	
 	
 	
 

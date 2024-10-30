@@ -33,5 +33,9 @@ public class Fila implements Fila_IF{
 	public Filme_IF head() throws Exception {
 		return p1.top();
 	}
+	
+	public void print() {
+		p1.print();
+	}
 
 }

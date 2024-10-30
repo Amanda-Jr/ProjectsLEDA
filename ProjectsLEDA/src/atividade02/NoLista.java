@@ -50,7 +50,7 @@ public class NoLista {
 
 	@Override
 	public String toString() {
-		return "NoLista [valor=" + valor + ", prox=" + prox + ", ant=" + ant + "]";
+		return valor.toString();
 	}
 	
 	

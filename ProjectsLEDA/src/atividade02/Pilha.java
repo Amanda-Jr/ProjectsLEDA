@@ -30,4 +30,8 @@ public class Pilha implements Pilha_IF{
 		return lista.head();
 	}
 	
+	public void print() {
+		lista.print();
+	}
+	
 }

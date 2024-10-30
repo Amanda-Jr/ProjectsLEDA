@@ -9,12 +9,38 @@ public class Main {
 		Filme f3 = new Filme("Ben 10", 2001, 1, 26);
 		
 		TabelaHash t = new TabelaHash();
+		Lista l = new Lista();
+		Pilha p = new Pilha();
+		Fila f = new Fila();
 		
 		//System.out.println(t.isEmpty());
 		
 		t.insert(f1);
 		t.insert(f2);
 		t.insert(f3);
+		
+		l.insert(f1);
+		l.insert(f2);
+		l.insert(f3);
+		
+		p.push(f1);
+		p.push(f2);
+		
+		f.enqueue(f1);
+		f.enqueue(f2);
+		f.enqueue(f3);
+		
+		
+		
+		System.out.println(l.size());
+		l.print();
+		System.out.println("");
+		p.print();
+		System.out.println("");
+		f.print();
+		
+		
+		
 		
 		//System.out.println(t.isEmpty());
 		
