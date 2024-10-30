@@ -23,57 +23,45 @@ public class AVL implements BST_IF {
         this.size = 0;
     }
 
-    @Override
-    public Filme_IF remove(long id) throws Exception {
-        root = removeRec(root, id);
-        return null; // Retorna null se o filme não for encontrado
-    }
+ public Filme_IF remove(long id) throws Exception {
+    Filme_IF[] removedElement = {null};  // Array usado para armazenar o elemento removido
+    root = remove(root, id, removedElement);  // Remove e balanceia a árvore
+    if (removedElement[0] == null) throw new Exception("Elemento não encontrado");
+    return removedElement[0];
+}
 
-    private Node removeRec(Node node, long id) throws Exception {
-        if (node == null) {
-            throw new Exception("Filme não encontrado.");
-        }
+private Node remove(Node node, long id, Filme_IF[] removedElement) {
+    if (node == null) return null;
 
-        if (id < node.filme.getID()) {
-            node.left = removeRec(node.left, id);
-        } else if (id > node.filme.getID()) {
-            node.right = removeRec(node.right, id);
+    if (id < node.elemento.getId()) {
+        node.left = remove(node.left, id, removedElement);
+    } else if (id > node.elemento.getId()) {
+        node.right = remove(node.right, id, removedElement);
+    } else {
+        removedElement[0] = node.elemento;  // Salva o elemento a ser removido
+
+        if (node.left == null || node.right == null) {
+            node = (node.left != null) ? node.left : node.right;
         } else {
-            // Nó encontrado
-            if (node.left == null || node.right == null) {
-                Node temp = node.left != null ? node.left : node.right;
-
-                if (temp == null) {
-                    temp = node;
-                    node = null;
-                } else {
-                    node = temp;
-                }
-            } else {
-                Node temp = findMin(node.right);
-                node.filme = temp.filme;
-                node.right = removeRec(node.right, temp.filme.getID());
-            }
+            Node temp = getMinValueNode(node.right);
+            node.elemento = temp.elemento;
+            node.right = remove(node.right, temp.elemento.getId(), removedElement);
         }
-
-        if (node == null) {
-            return node;
-        }
-
-        // Atualiza a altura do nó atual
-        node.height = 1 + Math.max(height(node.left), height(node.right));
-
-        // Balanceia o nó
-        return balance(node);
     }
 
-    private Node findMin(Node node) {
-        while (node.left != null) {
-            node = node.left;
-        }
-        return node;
-    }
+    if (node == null) return null;
 
+    node.height = 1 + Math.max(height(node.left), height(node.right));
+    return balance(node);
+}
+
+private Node getMinValueNode(Node node) {
+    Node current = node;
+    while (current.left != null) {
+        current = current.left;
+    }
+    return current;
+}
     @Override
     public void insert(Filme_IF elemento) {
         root = insertRec(root, elemento);
