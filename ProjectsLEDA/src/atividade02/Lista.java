@@ -125,12 +125,7 @@ public class Lista implements Lista_IF{
 	public Lista ordernar() {
 		Filme_IF[] filmes = toArray();
 		mergeSort(filmes);
-		
-		/*
-		for(int i=0; i<filmes.length; i++) {
-			System.out.println(filmes[i]);
-		}
-		*/
+
 		return toList(filmes);
 	}
 	

@@ -50,17 +50,17 @@ public class TabelaHash implements TabelaHash_IF{
 	
 	private String imprimirLista(Lista lista, NoLista no) {
 		String IDs = "";
-		NoLista ini = lista.getIni();
+		NoLista ini = lista.getFim();
 		
 		for(int i=0; i<lista.getTam(); i++) {
 			if(!ini.isNil()) {
 				if(ini == lista.getFim()) {
 					IDs += Long.toString(ini.getValor().getID());
 				}else {
-					IDs += Long.toString(ini.getValor().getID()) + ", ";
+					IDs += ", " + Long.toString(ini.getValor().getID());
 				}
 				
-				ini = ini.getProx();
+				ini = ini.getAnt();
 			}
 		}
         
