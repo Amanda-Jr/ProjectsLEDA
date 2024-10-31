@@ -36,6 +36,126 @@ public class AVL_Test {
 	}
 	
 	@Test
+	public void testRemoverFilmeId10() throws Exception {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[7]); // id = 7
+		avl.insert(filmes[8]); // id = 9
+		avl.insert(filmes[9]); // id = 10
+		
+		Filme_IF removido = avl.remove(10);
+		
+		assertNotEquals(filmes[0], removido);
+		assertEquals(filmes[9], removido); 
+		
+	}
+	
+	@Test
+	public void testRemoverFilmeId9() throws Exception {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[7]); // id = 7
+		avl.insert(filmes[8]); // id = 9
+		avl.insert(filmes[9]); // id = 10
+		
+		Filme_IF removido = avl.remove(9);
+		
+		assertNotEquals(filmes[9], removido);
+		assertEquals(filmes[8], removido); 
+		
+	}
+	
+	@Test
+	public void testRemoverFilmeId8() throws Exception {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[7]); // id = 7
+		avl.insert(filmes[8]); // id = 9
+		avl.insert(filmes[9]); // id = 10
+		
+		Filme_IF removido = avl.remove(8);
+		
+		assertNotEquals(filmes[8], removido);
+		assertEquals(filmes[3], removido); 
+		
+	}
+	
+	@Test
+	public void testRemoverFilmeId7() throws Exception {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[7]); // id = 7
+		avl.insert(filmes[8]); // id = 9
+		avl.insert(filmes[9]); // id = 10
+		
+		Filme_IF removido = avl.remove(7);
+		
+		assertNotEquals(filmes[4], removido);
+		assertEquals(filmes[7], removido); 
+		
+	}
+	
+	@Test
+	public void testRemoverFilmeId6() throws Exception {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[7]); // id = 7
+		avl.insert(filmes[8]); // id = 9
+		avl.insert(filmes[9]); // id = 10
+		
+		Filme_IF removido = avl.remove(6);
+		
+		assertNotEquals(filmes[6], removido);
+		assertEquals(filmes[5], removido); 
+		
+	}
+	
+	@Test
+	public void testRemoverFilmeId5() throws Exception {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[7]); // id = 7
+		avl.insert(filmes[8]); // id = 9
+		avl.insert(filmes[9]); // id = 10
+		
+		Filme_IF removido = avl.remove(5);
+		
+		assertNotEquals(filmes[5], removido);
+		assertEquals(filmes[2], removido); 
+		
+	}
+	
+	@Test
 	public void testRemoverFilmeId4() throws Exception {
 		avl.insert(filmes[0]); // id = 1
 		avl.insert(filmes[1]); // id = 3
