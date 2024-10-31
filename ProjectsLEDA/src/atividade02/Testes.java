@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class Testes {
 	
-	
 	private static long idFixo = 1;
 	
 	private static String gerarNomeAleatorio(int comprimento) {
@@ -35,7 +34,24 @@ public class Testes {
     }
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		long tempoInicial = 0;
+		long tempoFinal = 0;
+		final int tamanho = 1000;
+		Filme[] filmes = new Filme[tamanho];
+		
+		/*
+		Além do código, os grupos devem entregar um relatório em formato 
+		de documento Google, comparando a complexidade de tempo das operações 
+		nas diferentes estruturas de dados utilizadas (BST, Tabela Hash e Fila) 
+		e discutindo os trade-offs entre elas.
+		
+		Inserção de filmes.
+		Busca de filmes.
+		Remoção de filmes.
+		Exibição de filmes ordenados.
+		
+		*/
+		
 
 	}
 
