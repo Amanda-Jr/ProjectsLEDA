@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class Testes {
 	
+	
 	private static long idFixo = 1;
 	
 	private static String gerarNomeAleatorio(int comprimento) {
