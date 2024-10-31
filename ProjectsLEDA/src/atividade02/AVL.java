@@ -30,29 +30,30 @@ public class AVL implements BST_IF {
     return removedElement[0];
 }
 
-private Node remove(Node node, long id, Filme_IF[] removedElement) {
-    if (node == null) return null;
-    if (id < node.filme.getID() ) {
-        node.left = remove(node.left, id, removedElement);
-    } else if (id > node.filme.getID()) {
-        node.right = remove(node.right, id, removedElement);
-    } else {
-        removedElement[0] = node.filme;  // Salva o elemento a ser removido
+ private Node remove(Node node, long id, Filme_IF[] removedElement) {
+	    if (node == null) return null;
 
-        if (node.left == null || node.right == null) {
-            node = (node.left != null) ? node.left : node.right;
-        } else {
-            Node temp = getMinValueNode(node.right);
-            node.filme = temp.filme;
-            node.right = remove(node.right, temp.filme.getID(), removedElement);
-        }
-    }
+	    if (id < node.filme.getID()) {
+	        node.left = remove(node.left, id, removedElement);
+	    } else if (id > node.filme.getID()) {
+	        node.right = remove(node.right, id, removedElement);
+	    } else {
+	        removedElement[0] = node.filme;
 
-    if (node == null) return null;
+	        if (node.left == null || node.right == null) {
+	            node = (node.left != null) ? node.left : node.right;
+	        } else {
+	            Node temp = getMinValueNode(node.right);
+	            node.filme = temp.filme;
+	            node.right = remove(node.right, temp.filme.getID(), new Filme_IF[1]);  // Corrige para uma nova referência ao array
+	        }
+	    }
 
-    node.height = 1 + Math.max(height(node.left), height(node.right));
-    return balance(node);
-}
+	    if (node == null) return null;
+
+	    node.height = 1 + Math.max(height(node.left), height(node.right));
+	    return balance(node);
+	}
 
 private Node getMinValueNode(Node node) {
     Node current = node;
