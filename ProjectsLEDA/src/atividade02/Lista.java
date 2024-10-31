@@ -109,13 +109,29 @@ public class Lista implements Lista_IF{
 		return filmes;
 	}
 	
-	public void ordernar() {
+	public Lista toList(Filme_IF array[]) {
+		if(array == null) {
+			return null;
+		}
+		
+		Lista list = new Lista();
+		for(int i=0; i<tam; i++) {
+			list.insert(array[i]);
+		}
+		
+		return list;
+	}
+	
+	public Lista ordernar() {
 		Filme_IF[] filmes = toArray();
 		mergeSort(filmes);
 		
+		/*
 		for(int i=0; i<filmes.length; i++) {
 			System.out.println(filmes[i]);
 		}
+		*/
+		return toList(filmes);
 	}
 	
 	public void mergeSort(Filme_IF[] filmes) {
@@ -187,12 +203,12 @@ public class Lista implements Lista_IF{
 		return tam;
 	}
 	
-	public void print() {
-		NoLista aux = fim;
-		for(int i=0; i<tam; i++) {
-			System.out.println(aux);
-			aux = aux.getAnt();
+	public String print(NoLista no) {
+		if(no.isNil()) {
+			return "";
 		}
+		System.out.println(no.getValor());
+		return print(no.getAnt());
 	}
 	
 	public NoLista getIni() {

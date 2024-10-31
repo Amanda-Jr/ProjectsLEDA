@@ -31,7 +31,7 @@ public class Pilha implements Pilha_IF{
 	}
 	
 	public void print() {
-		lista.print();
+		lista.print(lista.getFim());
 	}
 	
 }

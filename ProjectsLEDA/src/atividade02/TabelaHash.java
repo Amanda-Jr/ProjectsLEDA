@@ -50,21 +50,34 @@ public class TabelaHash implements TabelaHash_IF{
 	
 	private String imprimirLista(Lista lista, NoLista no) {
 		String IDs = "";
+		NoLista ini = lista.getIni();
 		
-		if(lista.isEmpty()) {
-			return "";
+		for(int i=0; i<lista.getTam(); i++) {
+			if(!ini.isNil()) {
+				if(ini == lista.getFim()) {
+					IDs += Long.toString(ini.getValor().getID());
+				}else {
+					IDs += Long.toString(ini.getValor().getID()) + ", ";
+				}
+				
+				ini = ini.getProx();
+			}
 		}
-		
-        if (lista.size() == 1 || no == lista.getFim()) {
-            IDs = Long.toString(no.getValor().getID());
-        } else if (lista.size() > 1 && no != lista.getFim()) {
-        	
-        	IDs += (Long.toString(lista.getIni().getValor().getID()) + ", " + imprimirLista(lista, no.getProx()));
-        }
         
         return IDs;
     }
 	
+	public void ordenar() {
+		for(int i=0; i<m; i++) {
+			if(!t[i].getIni().isNil()) {
+				if(t[i].getIni() != t[i].getFim() ) {
+					t[i] = t[i].ordernar();
+				}
+				
+			}
+			
+		}
+	}
 	
 	private int h(long K) {
 		

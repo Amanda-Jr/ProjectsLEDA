@@ -7,17 +7,24 @@ public class Main {
 		Filme f1 = new Filme("Tarzan", 2004, 5, 3);
 		Filme f2 = new Filme("Tom e Jerry", 2022, 2, 55);
 		Filme f3 = new Filme("Ben 10", 2001, 1, 26);
+		Filme f4 = new Filme("Transformers", 2007, 5, 13);
+		Filme f5 = new Filme("McQueen", 2022, 2, 12);
+		Filme f6 = new Filme("SQL O Filme", 2001, 1, 39);
 		
 		TabelaHash t = new TabelaHash();
 		Lista l = new Lista();
 		Pilha p = new Pilha();
 		Fila f = new Fila();
 		
-		//System.out.println(t.isEmpty());
+		System.out.println(t.isEmpty());
 		
 		t.insert(f1);
 		t.insert(f2);
 		t.insert(f3);
+		t.insert(f4);
+		t.insert(f5);
+		t.insert(f6);
+		
 		
 		l.insert(f1);
 		l.insert(f2);
@@ -34,24 +41,29 @@ public class Main {
 		f.enqueue(f3);
 		
 		
-		
+		/*
 		System.out.println(l.size());
-		l.print();
+		l.print(l.getFim());
 		System.out.println("");
-		p.print();
+		//p.print();
 		System.out.println("");
-		f.print();
+		//f.print();
 		System.out.println("\nlista ordenada");
-		l.ordernar();
+		l = l.ordernar();
+		l.print(l.getFim());
+		*/
 		
 		
-		
-		//System.out.println(t.isEmpty());
+		System.out.println(t.isEmpty());
 		
 		System.out.println(t.print());
 		
 		t.remove(55);
 		
+		System.out.println(t.print());
+		
+		System.out.println("Tabela Hash Ordenada: ");
+		t.ordenar();
 		System.out.println(t.print());
 		
 		//System.out.println(t.search(55));
