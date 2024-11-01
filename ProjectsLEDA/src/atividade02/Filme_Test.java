@@ -10,16 +10,17 @@ public class Filme_Test {
 	
 	@Test
 	public void testCompareTo() {
-		Filme_IF f1 = new Filme("A", 5, 2020, 1);
-        Filme_IF f2 = new Filme("B", 5, 2020, 3);
-        Filme_IF f3 = new Filme("C", 4, 2019, 5);
-        Filme_IF f4 = new Filme("D", 4, 2000, 8);
-        Filme_IF f5 = new Filme("E", 3, 2005, 2);
-        Filme_IF f6 = new Filme("F", 3, 2002, 6);
-        Filme_IF f7 = new Filme("G", 3, 2005, 4);
-        Filme_IF f8 = new Filme("H", 2, 2019, 7);
-        Filme_IF f9 = new Filme("I", 2, 2020, 9);
-        Filme_IF f10 = new Filme("J", 1, 1998, 10);
+		Filme_IF f1 = new Filme("A", 2020, 5,  1);
+        Filme_IF f2 = new Filme("B", 2020, 5,  3);
+        Filme_IF f3 = new Filme("C", 2019, 4,  5);
+        Filme_IF f4 = new Filme("D", 2000, 4,  8);
+        Filme_IF f5 = new Filme("E", 2005, 3,  2);
+        Filme_IF f6 = new Filme("F", 2002, 3,  6);
+        Filme_IF f7 = new Filme("G", 2005, 3,  4);
+        Filme_IF f8 = new Filme("H", 2019, 2,  7);
+        Filme_IF f9 = new Filme("I", 2020, 2,  9);
+        Filme_IF f10 = new Filme("J", 1998, 1,  10);
+	    
         
         assertTrue(f1.compareTo(f2) < 0);
         assertTrue(f2.compareTo(f1) > 0);

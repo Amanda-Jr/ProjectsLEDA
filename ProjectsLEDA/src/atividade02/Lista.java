@@ -202,8 +202,8 @@ public class Lista implements Lista_IF{
 		if(no.isNil()) {
 			return "";
 		}
-		System.out.println(no.getValor());
-		return print(no.getAnt());
+		//System.out.println(no.getValor());
+		return no.getValor().toString() + "\n" +  print(no.getAnt());
 	}
 	
 	public NoLista getIni() {
