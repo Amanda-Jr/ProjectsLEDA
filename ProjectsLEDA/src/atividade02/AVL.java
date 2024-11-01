@@ -214,14 +214,14 @@ private Node getMinValueNode(Node node) {
 
     @Override
     public Filme_IF[] preOrder() {
-        List<Filme_IF> list = new ArrayList<>();
+        Lista list = new Lista();
         preOrderRec(root, list);
-        return list.toArray(new Filme_IF[0]);
+        return list.toArray();
     }
 
-    private void preOrderRec(Node node, List<Filme_IF> list) {
+    private void preOrderRec(Node node, Lista list) {
         if (node != null) {
-            list.add(node.filme);
+            list.insert(node.filme);
             preOrderRec(node.left, list);
             preOrderRec(node.right, list);
         }
@@ -229,31 +229,31 @@ private Node getMinValueNode(Node node) {
 
     @Override
     public Filme_IF[] order() {
-        List<Filme_IF> list = new ArrayList<>();
+        Lista list = new Lista();
         inOrderRec(root, list);
-        return list.toArray(new Filme_IF[0]);
+        return list.toArray();
     }
 
-    private void inOrderRec(Node node, List<Filme_IF> list) {
+    private void inOrderRec(Node node, Lista list) {
         if (node != null) {
             inOrderRec(node.left, list);
-            list.add(node.filme);
+            list.insert(node.filme);
             inOrderRec(node.right, list);
         }
     }
 
     @Override
     public Filme_IF[] postOrder() {
-        List<Filme_IF> list = new ArrayList<>();
+        Lista list = new Lista();
         postOrderRec(root, list);
-        return list.toArray(new Filme_IF[0]);
+        return list.toArray();
     }
 
-    private void postOrderRec(Node node, List<Filme_IF> list) {
+    private void postOrderRec(Node node, Lista list) {
         if (node != null) {
             postOrderRec(node.left, list);
             postOrderRec(node.right, list);
-            list.add(node.filme);
+            list.insert(node.filme);
         }
     }
 }

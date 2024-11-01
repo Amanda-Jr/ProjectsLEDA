@@ -52,13 +52,13 @@ public class Testes {
 		final int tamanho = 1000000;
 		Filme[] filmes = new Filme[tamanho];
 		
-		Fila fila = new Fila();
-		//TabelaHash tab = new TabelaHash();
+		//Fila fila = new Fila();
+		TabelaHash tab = new TabelaHash();
 		//AVL avl = new AVL();
 		
 		for(int i=0; i<tamanho; i++) {
 			Filme_IF filmeAleatorio = gerarFilmeAleatorio();
-			fila.enqueue(filmeAleatorio);
+			tab.insert(filmeAleatorio);
 		}
 		
 		
@@ -70,7 +70,7 @@ public class Testes {
 
 						
 				try {
-					filmeEncontrado = fila.search(5000);
+					filmeEncontrado = tab.search(5000);
 					
 				} catch (Exception e) {
 						
