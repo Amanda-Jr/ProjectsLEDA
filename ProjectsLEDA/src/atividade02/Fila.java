@@ -37,5 +37,9 @@ public class Fila implements Fila_IF{
 	public void print() {
 		p1.print();
 	}
+	
+	public Filme_IF search(long id) throws Exception {
+		return p1.search(id);
+	}
 
 }

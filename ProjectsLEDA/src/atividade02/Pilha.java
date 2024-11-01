@@ -34,4 +34,8 @@ public class Pilha implements Pilha_IF{
 		lista.print(lista.getFim());
 	}
 	
+	public Filme_IF search(long id) throws Exception {
+		return lista.search(id);
+	}
+	
 }

@@ -5,6 +5,19 @@ import java.util.Random;
 
 public class Testes {
 	
+	/*
+	Além do código, os grupos devem entregar um relatório em formato 
+	de documento Google, comparando a complexidade de tempo das operações 
+	nas diferentes estruturas de dados utilizadas (BST, Tabela Hash e Fila) 
+	e discutindo os trade-offs entre elas.
+	
+	Inserção de filmes.
+	Busca de filmes.
+	Remoção de filmes.
+	Exibição de filmes ordenados.
+	
+	*/
+	
 	private static long idFixo = 1;
 	
 	private static String gerarNomeAleatorio(int comprimento) {
@@ -36,23 +49,48 @@ public class Testes {
 	public static void main(String[] args) {
 		long tempoInicial = 0;
 		long tempoFinal = 0;
-		final int tamanho = 1000;
+		final int tamanho = 1000000;
 		Filme[] filmes = new Filme[tamanho];
 		
-		/*
-		Além do código, os grupos devem entregar um relatório em formato 
-		de documento Google, comparando a complexidade de tempo das operações 
-		nas diferentes estruturas de dados utilizadas (BST, Tabela Hash e Fila) 
-		e discutindo os trade-offs entre elas.
+		Fila fila = new Fila();
+		//TabelaHash tab = new TabelaHash();
+		//AVL avl = new AVL();
 		
-		Inserção de filmes.
-		Busca de filmes.
-		Remoção de filmes.
-		Exibição de filmes ordenados.
+		for(int i=0; i<tamanho; i++) {
+			Filme_IF filmeAleatorio = gerarFilmeAleatorio();
+			fila.enqueue(filmeAleatorio);
+		}
 		
-		*/
+		
+		Filme_IF filmeEncontrado = null;
+		
+		for(int i=0; i<10; i++) {
+			long tIni = System.nanoTime();
+			tempoInicial = tempoInicial + tIni;
+
+						
+				try {
+					filmeEncontrado = fila.search(5000);
+					
+				} catch (Exception e) {
+						
+					System.err.println(e.getMessage());
+				}
+					
+
+			long tFim = System.nanoTime();
+			System.out.println((tFim - tIni)/1000000000.0);
+			tempoFinal = tempoFinal + tFim;
+		}
+		
+		
+		System.out.println(filmeEncontrado);
+		System.out.println((tempoFinal - tempoInicial)/10000000000.0);
+		
+		
+	}
 		
 
-	}
+	
 
 }

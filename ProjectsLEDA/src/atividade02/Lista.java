@@ -62,7 +62,7 @@ public class Lista implements Lista_IF{
 	}
 
 	@Override
-	public Filme_IF search(long id) throws Exception {
+	public Filme_IF search(long id) throws NotFoundException {
 		NoLista aux = new NoLista();
 		aux = ini;
 		
