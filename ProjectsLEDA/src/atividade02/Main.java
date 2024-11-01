@@ -92,7 +92,7 @@ public class Main {
 		
 		System.out.println(avl.isEmpty());
 		
-		Filme_IF filme = avl.remove(3);
+		Filme_IF filme = avl.remove(11);
 		System.out.println(filme);
 	}
 
