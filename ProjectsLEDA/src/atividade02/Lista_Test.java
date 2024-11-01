@@ -10,16 +10,16 @@ public class Lista_Test {
 	private final Lista lista = new Lista();
 	
 	private Filme_IF[] filmes = {
-		new Filme("A", 5, 2020, 1),
-		new Filme("B", 5, 2020, 3),
-	    new Filme("C", 4, 2019, 5),
-	    new Filme("D", 4, 2000, 8),
-	    new Filme("E", 3, 2005, 2),
-	    new Filme("F", 3, 2002, 6),
-	    new Filme("G", 3, 2005, 4),
-	    new Filme("H", 2, 2019, 7),
-	    new Filme("I", 2, 2020, 9),
-	    new Filme("J", 1, 1998, 10)
+		new Filme("A", 2020, 5,  1),
+		new Filme("B", 2020, 5,  3),
+	    new Filme("C", 2019, 4,  5),
+	    new Filme("D", 2000, 4,  8),
+	    new Filme("E", 2005, 3,  2),
+	    new Filme("F", 2002, 3,  6),
+	    new Filme("G", 2005, 3,  4),
+	    new Filme("H", 2019, 2,  7),
+	    new Filme("I", 2020, 2,  9),
+	    new Filme("J", 1998, 1,  10)
 	};
     
 	@Test
@@ -132,8 +132,23 @@ public class Lista_Test {
 	
 	@Test 
 	public void testImprimir() {
-		lista.toString();
+		lista.insert(filmes[0]); // id = 1
+		String print =  lista.print(lista.getFim());
+		assertEquals("A (2020) [5] ID: 1\n", print);
 	}
+	
+	@Test 
+	public void testOrdenar() {
+		lista.insert(filmes[1]); // id = 3
+		lista.insert(filmes[2]); // id = 5
+		lista.insert(filmes[3]); // id = 8
+		lista.insert(filmes[0]); // id = 1
+		
+		lista.ordernar();
+		assertEquals(lista.getIni().getValor(), filmes[0]);
+		
+	}
+	
 	
 	
 }

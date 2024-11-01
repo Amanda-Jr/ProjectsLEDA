@@ -221,9 +221,9 @@ private Node getMinValueNode(Node node) {
 
     private void preOrderRec(Node node, Lista list) {
         if (node != null) {
-            list.insert(node.filme);
-            preOrderRec(node.left, list);
             preOrderRec(node.right, list);
+            preOrderRec(node.left, list);
+            list.insert(node.filme);
         }
     }
 
@@ -236,9 +236,9 @@ private Node getMinValueNode(Node node) {
 
     private void inOrderRec(Node node, Lista list) {
         if (node != null) {
-            inOrderRec(node.left, list);
-            list.insert(node.filme);
             inOrderRec(node.right, list);
+            list.insert(node.filme);
+            inOrderRec(node.left, list);
         }
     }
 
@@ -251,9 +251,10 @@ private Node getMinValueNode(Node node) {
 
     private void postOrderRec(Node node, Lista list) {
         if (node != null) {
-            postOrderRec(node.left, list);
+        	list.insert(node.filme);
             postOrderRec(node.right, list);
-            list.insert(node.filme);
+            postOrderRec(node.left, list);
+            
         }
     }
 }

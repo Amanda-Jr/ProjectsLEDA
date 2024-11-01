@@ -11,16 +11,16 @@ public class TabelaHash_Test {
 	TabelaHash tab = new TabelaHash();
 	
 	private Filme_IF[] filmes = {
-			new Filme("A", 5, 2020, 1),
-			new Filme("B", 5, 2020, 2),
-		    new Filme("C", 4, 2019, 5),
-		    new Filme("D", 4, 2000, 8),
-		    new Filme("E", 3, 2005, 13),
-		    new Filme("F", 3, 2002, 26),
-		    new Filme("G", 3, 2005, 14),
-		    new Filme("H", 2, 2019, 17),
-		    new Filme("I", 2, 2020, 39),
-		    new Filme("J", 1, 1998, 91)
+			new Filme("A", 2020, 5,  1),
+			new Filme("B", 2020, 5,  3),
+		    new Filme("C", 2019, 4,  5),
+		    new Filme("D", 2000, 4,  8),
+		    new Filme("E", 2005, 3,  13),
+		    new Filme("F", 2002, 3,  26),
+		    new Filme("G", 2005, 3,  39),
+		    new Filme("H", 2019, 2,  7),
+		    new Filme("I", 2020, 2,  9),
+		    new Filme("J", 1998, 1,  10)
 	};
 	
 	
@@ -93,6 +93,21 @@ public class TabelaHash_Test {
 	public void testBuscaListaVaziaException() throws Exception {
 		tab.search(filmes[6].getID());
 	}
+	
+	@Test 
+	public void testOrdenar() throws Exception {
+		tab.insert(filmes[6]); // id = 39
+		tab.insert(filmes[5]); // id = 26
+		tab.insert(filmes[4]); // id = 13
+		
+		tab.ordenar();
+		
+		assertEquals(filmes[4], tab.getT()[0].getFim().getValor());
+		
+		
+		
+	}
+	
 	
 }
 

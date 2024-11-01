@@ -84,4 +84,14 @@ public class TabelaHash implements TabelaHash_IF{
 		return (int) K % m;
 	}
 
+	public Lista[] getT() {
+		return t;
+	}
+
+	public int getM() {
+		return m;
+	}
+	
+	
+
 }

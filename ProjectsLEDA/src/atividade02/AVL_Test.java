@@ -188,7 +188,7 @@ public class AVL_Test {
 		Filme_IF removido = avl.remove(3);
 		
 		assertNotEquals(filmes[3], removido);
-		assertEquals(filmes[1], removido); //erro: esperado filmes[1], retornado filmes[6]
+		assertEquals(filmes[1], removido); 
 		
 	}
 	
@@ -266,6 +266,77 @@ public class AVL_Test {
 		
 	}
 	
+	@Test
+	public void testPreOrdem() {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[7]); // id = 7
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[8]); // id = 9
+		avl.insert(filmes[9]); // id = 10
+		
+		String esperado = "4 2 1 3 8 6 5 7 9 10 ";
+		String tem = "";
+		Filme_IF[] avlArray = avl.preOrder();
+		for(int i=0; i<10; i++) {
+			tem += avlArray[i].getID() + " ";
+		}
+		
+		assertEquals(esperado, tem);
+		
+	}
+	
+	@Test
+	public void testOrdem() {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[7]); // id = 7
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[8]); // id = 9
+		avl.insert(filmes[9]); // id = 10
+		
+		String esperado = "1 2 3 4 5 6 7 8 9 10 ";
+		String tem = "";
+		Filme_IF[] avlArray = avl.order();
+		for(int i=0; i<10; i++) {
+			tem += avlArray[i].getID() + " ";
+		}
+		
+		assertEquals(esperado, tem);
+		
+	}
+	
+	@Test
+	public void testPosOrdem() {
+		avl.insert(filmes[0]); // id = 1
+		avl.insert(filmes[4]); // id = 2
+		avl.insert(filmes[1]); // id = 3
+		avl.insert(filmes[6]); // id = 4
+		avl.insert(filmes[2]); // id = 5
+		avl.insert(filmes[5]); // id = 6
+		avl.insert(filmes[7]); // id = 7
+		avl.insert(filmes[3]); // id = 8
+		avl.insert(filmes[8]); // id = 9
+		avl.insert(filmes[9]); // id = 10
+		
+		String esperado = "1 3 2 5 7 6 10 9 8 4 ";
+		String tem = "";
+		Filme_IF[] avlArray = avl.postOrder();
+		for(int i=0; i<10; i++) {
+			tem += avlArray[i].getID() + " ";
+		}
+		
+		assertEquals(esperado, tem);
+		
+	}
 	
 	
 	
