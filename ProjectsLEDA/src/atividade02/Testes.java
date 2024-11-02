@@ -49,17 +49,11 @@ public class Testes {
 	public static void main(String[] args) {
 		long tempoInicial = 0;
 		long tempoFinal = 0;
-		final int tamanho = 1000000;
-		Filme[] filmes = new Filme[tamanho];
+		final int tamanho = 750000;
 		
 		//Fila fila = new Fila();
-		TabelaHash tab = new TabelaHash();
-		//AVL avl = new AVL();
-		
-		for(int i=0; i<tamanho; i++) {
-			Filme_IF filmeAleatorio = gerarFilmeAleatorio();
-			tab.insert(filmeAleatorio);
-		}
+		//TabelaHash tab = new TabelaHash();
+		AVL avl = new AVL();
 		
 		
 		Filme_IF filmeEncontrado = null;
@@ -70,7 +64,10 @@ public class Testes {
 
 						
 				try {
-					filmeEncontrado = tab.search(5000);
+					for(int j=0; j<tamanho; j++) {
+						Filme_IF filmeAleatorio = gerarFilmeAleatorio();
+						avl.insert(filmeAleatorio);
+					}
 					
 				} catch (Exception e) {
 						

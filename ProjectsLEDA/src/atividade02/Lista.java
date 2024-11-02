@@ -34,6 +34,12 @@ public class Lista implements Lista_IF{
 		aux = ini;
 		
 		if(ini.getValor().getID() == id) {
+			if(ini.getValor() == fim.getValor()) {
+				NoLista nill = new NoLista();
+				ini = nill;
+				fim = nill;
+				return aux.getValor();
+			}
 			ini = ini.getProx();
 			return aux.getValor();
 		}

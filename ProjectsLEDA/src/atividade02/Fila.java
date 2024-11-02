@@ -34,8 +34,8 @@ public class Fila implements Fila_IF{
 		return p1.top();
 	}
 	
-	public void print() {
-		p1.print();
+	public String print() {
+		return p1.print();
 	}
 	
 	public Filme_IF search(long id) throws Exception {

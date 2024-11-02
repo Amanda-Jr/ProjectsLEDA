@@ -1,99 +1,241 @@
 package atividade02;
+import java.util.Scanner;
 
 public class Main {
+	
+	private static long idFixo = 1;
+	
 
 	public static void main(String[] args) throws Exception {
 		
-		Filme_IF[] filmes = {
-				new Filme("A", 5, 2020, 1),
-				new Filme("B", 5, 2020, 3),
-			    new Filme("C", 4, 2019, 5),
-			    new Filme("D", 4, 2000, 8),
-			    new Filme("E", 3, 2005, 2),
-			    new Filme("F", 3, 2002, 6),
-			    new Filme("G", 3, 2005, 4),
-			    new Filme("H", 2, 2019, 7),
-			    new Filme("I", 2, 2020, 9),
-			    new Filme("J", 1, 1998, 10)
-			};
-		
-		/*
-		TabelaHash t = new TabelaHash();
-		Lista l = new Lista();
-		Pilha p = new Pilha();
-		Fila f = new Fila();
-		
-		System.out.println(t.isEmpty());
-		
-		t.insert(f1);
-		t.insert(f2);
-		t.insert(f3);
-		t.insert(f4);
-		t.insert(f5);
-		t.insert(f6);
-		
-		
-		l.insert(f1);
-		l.insert(f2);
-		l.insert(f3);
-		l.insert(f1);
-		l.insert(f2);
-		l.insert(f3);
-		
-		p.push(f1);
-		p.push(f2);
-		
-		f.enqueue(f1);
-		f.enqueue(f2);
-		f.enqueue(f3);
-		
-		
-		
-		System.out.println(l.size());
-		l.print(l.getFim());
-		System.out.println("");
-		//p.print();
-		System.out.println("");
-		//f.print();
-		System.out.println("\nlista ordenada");
-		l = l.ordernar();
-		l.print(l.getFim());
-		
-		System.out.println(t.isEmpty());
-		
-		System.out.println(t.print());
-		
-		t.remove(55);
-		
-		System.out.println(t.print());
-		
-		System.out.println("Tabela Hash Ordenada: ");
-		t.ordenar();
-		System.out.println(t.print());
-		*/
-		
-		//System.out.println(t.search(55));
-		//System.out.println(t.search(3));
-		//System.out.println(t.search(45));
-		
+		Fila fila = new Fila();
+		TabelaHash tab = new TabelaHash();
 		AVL avl = new AVL();
-		System.out.println(avl.isEmpty());
 		
-		avl.insert(filmes[0]); // id = 1
-		avl.insert(filmes[1]); // id = 3
-		avl.insert(filmes[2]); // id = 5
-		avl.insert(filmes[3]); // id = 8
-		avl.insert(filmes[4]); // id = 2
-		avl.insert(filmes[5]); // id = 6
-		avl.insert(filmes[6]); // id = 4
-		avl.insert(filmes[7]); // id = 7
-		avl.insert(filmes[8]); // id = 9
-		avl.insert(filmes[9]); // id = 10
+		Scanner sc = new Scanner(System.in);
 		
-		System.out.println(avl.isEmpty());
+		System.out.println("Gerenciador de Filmes");
 		
-		Filme_IF filme = avl.remove(11);
-		System.out.println(filme);
+		System.out.println("\nEscolha a estrutura que deseja utilizar para gerenciar os filmes:"
+				+ "\n[1] Fila\n[2] Tabela Hash\n[3] Árvore Binária de Busca \n[0] Sair");
+		
+		int escolha = sc.nextInt();
+		int operacao = 0;
+		
+		while(escolha>0) {
+			switch(escolha) {
+				case 1:
+					
+					System.out.println("\nQual operacao deseja realizar?"
+							+ "\n[1] Inserir\n[2] Remover\n[3] Buscar\n[4] Exibir Filmes Ordenados \n[0] Sair");
+					
+					operacao = sc.nextInt();
+					if(operacao == 0) escolha = 0;
+					
+					switch(operacao) {
+						case 1:
+							
+							System.out.println("Digite o nome do filme");
+							String nome = sc.next();
+							System.out.println("Digite o ano do filme");
+							int ano = sc.nextInt();
+							System.out.println("Digite a nota do filme");
+							int nota = sc.nextInt();
+							long id = idFixo;
+						    idFixo++;
+						    
+						    Filme_IF filmeAdd = new Filme(nome, ano, nota, id);
+						    fila.enqueue(filmeAdd);
+						    System.out.println("Filme adicionado: " + fila.head());
+							
+							break;
+							
+						case 2:
+							
+							Filme_IF filmeRemov = fila.dequeue();
+							System.out.println("Filme removido: " + filmeRemov);
+							
+							break;
+							
+						case 3:
+							System.out.println("Digite o id do filme que deseja buscar: ");
+							long idBuscar = sc.nextLong();
+							
+							try {
+								System.out.println("Filme encontrado: " + fila.search(idBuscar));
+								
+							} catch (Exception e) {
+								System.err.println(e.getMessage());
+							}
+							
+							break;
+						
+						case 4:
+							
+
+							try {
+								fila.head();
+								
+								System.out.println(fila.print());
+								
+							} catch (Exception e) {
+								System.err.println(e.getMessage());
+							}
+							
+							break;
+						
+					}
+					
+					break;
+					
+				case 2:
+
+					System.out.println("\nQual operacao deseja realizar?"
+							+ "\n[1] Inserir\n[2] Remover\n[3] Buscar\n[4] Exibir Filmes Ordenados \n[0] Sair");
+					
+					operacao = sc.nextInt();
+					if(operacao == 0) escolha = 0;
+					
+					switch(operacao) {
+						case 1:
+							
+							System.out.println("Digite o nome do filme");
+							String nome = sc.next();
+							System.out.println("Digite o ano do filme");
+							int ano = sc.nextInt();
+							System.out.println("Digite a nota do filme");
+							int nota = sc.nextInt();
+							long id = idFixo;
+						    idFixo++;
+						    
+						    Filme_IF filmeAdd = new Filme(nome, ano, nota, id);
+						    tab.insert(filmeAdd);
+						    System.out.println("Filme adicionado: " + tab.search(id));
+							
+							break;
+							
+						case 2:
+							System.out.println("Digite o id do filme que deseja remover:");
+							long idRemov = sc.nextLong();
+							Filme_IF filmeRemov = tab.remove(idRemov);
+							System.out.println("Filme removido: " + filmeRemov);
+							
+							break;
+							
+						case 3:
+							System.out.println("Digite o id do filme que deseja buscar: ");
+							long idBuscar = sc.nextLong();
+							
+							try {
+								System.out.println("Filme encontrado: " + tab.search(idBuscar));
+								
+							} catch (Exception e) {
+								System.err.println(e.getMessage());
+							}
+							
+							break;
+						
+						case 4:
+
+							try {
+								tab.ordenar();
+								
+								System.out.println(tab.print());
+								
+							} catch (Exception e) {
+								System.err.println(e.getMessage());
+								
+							break;
+					
+						}
+							
+						break;
+					}
+					
+					case 3:
+						System.out.println("\nQual operacao deseja realizar?"
+								+ "\n[1] Inserir\n[2] Remover\n[3] Buscar\n[4] Exibir Filmes Ordenados \n[5]Verificar se a Arvore esta completa \n[0] Sair");
+						
+						operacao = sc.nextInt();
+						if(operacao == 0) escolha = 0;
+						
+						switch(operacao) {
+							case 1:
+								
+								System.out.println("Digite o nome do filme");
+								String nome = sc.next();
+								System.out.println("Digite o ano do filme");
+								int ano = sc.nextInt();
+								System.out.println("Digite a nota do filme");
+								int nota = sc.nextInt();
+								long id = idFixo;
+							    idFixo++;
+							    
+							    Filme_IF filmeAdd = new Filme(nome, ano, nota, id);
+							    avl.insert(filmeAdd);
+							    System.out.println("Filme adicionado: " + avl.search(id));
+								
+								break;
+								
+							case 2:
+								System.out.println("Digite o id do filme que deseja remover:");
+								long idRemov = sc.nextLong();
+								Filme_IF filmeRemov = avl.remove(idRemov);
+								System.out.println("Filme removido: " + filmeRemov);
+								
+								break;
+								
+							case 3:
+								System.out.println("Digite o id do filme que deseja buscar: ");
+								long idBuscar = sc.nextLong();
+								
+								try {
+									System.out.println("Filme encontrado: " + avl.search(idBuscar));
+									
+								} catch (Exception e) {
+									System.err.println(e.getMessage());
+								}
+								
+								break;
+							
+							case 4:
+
+								try {
+									Filme_IF[] avlOrdenada = avl.order();
+									
+									for (Filme_IF f: avlOrdenada){
+										System.out.println(f);
+									}
+									
+									
+								} catch (Exception e) {
+									System.err.println(e.getMessage());	
+						
+								}
+								
+								break;
+							case 5:
+								if(avl.isComplete()) {
+									 System.out.println("Arvore Completa");
+								} else {
+									System.out.println("Arvore Incompleta");
+								}
+								
+								
+								break;
+						}
+								
+						break;
+									
+							
+				
+			}
+			
+					
+		}
+		
+		
 	}
+	
 
 }

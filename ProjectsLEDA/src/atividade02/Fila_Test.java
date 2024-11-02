@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class Fila_Test {
 	
-	private final Fila_IF fila = new Fila();
+	private final Fila fila = new Fila();
 	
 	private Filme_IF[] filmes = {
 			new Filme("A", 2020, 5,  1),
@@ -52,6 +52,17 @@ public class Fila_Test {
 	}
 	
 	
+	@Test
+	public void testBusca() throws Exception{
+		fila.enqueue(filmes[0]); // id = 1
+		fila.enqueue(filmes[1]); // id = 3
+		fila.enqueue(filmes[2]); // id = 5
+		
+		
+		assertEquals(filmes[0], fila.search(1));
+		
+		
+	}
 	
 	
 	

@@ -30,8 +30,8 @@ public class Pilha implements Pilha_IF{
 		return lista.head();
 	}
 	
-	public void print() {
-		lista.print(lista.getFim());
+	public String print() {
+		return lista.print(lista.getFim());
 	}
 	
 	public Filme_IF search(long id) throws Exception {
