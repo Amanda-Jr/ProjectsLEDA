@@ -116,17 +116,19 @@ Observações:
 ● Embora a busca binária recursiva tenha a mesma complexidade de tempo da versão iterativa, a recursão pode aumentar o uso de memória em sistemas com limites restritos para chamadas recursivas. 
 
 5. Conclusão: 
-A análise detalhada de cada algoritmo revela que a escolha do algoritmo correto depende do tamanho do array e da distribuição dos dados: 
+A análise detalhada de cada algoritmo revela que a escolha do algoritmo correto depende do tamanho do array e da distribuição dos dados:
+
 Algoritmos de Ordenação: 
-● O Insertion Sort é eficiente para vetores pequenos, como até 22.000 elementos, mas torna-se lento em vetores maiores. Ele é uma boa escolha para dados quase ordenados, mas não é ideal para grandes volumes devido à sua complexidade O(n²). 
-● O Quick Sort, com complexidade média O(n log n), mostrou ser um dos algoritmos mais eficientes. Mesmo com grandes volumes de dados, como 1.000.000 de elementos, ele manteve um tempo de execução baixo, sendo ideal para vetores grandes. Se tratando do vetor de entrada previamente ordenado, o Quick sort sem o random cai em seu pior caso, se mostrando menos eficiente conforme aumentado o volume da entrada. Sendo assim, o Quick sort random se mostrou uma escolha mais eficiente para grandes entradas nos diversos casos. 
-● O Merge sort, com complexidade garantida de O(n log n), também apresentou excelente desempenho, especialmente em grandes vetores. Embora tenha um overhead de memória devido ao uso de memória adicional para combinar as sublistas, seu tempo de execução foi consistente e eficiente, mesmo para os maiores conjuntos de dados. 
-● O Counting Sort foi o mais rápido nos cenários testados, mas sua aplicação é limitada a quando os elementos do vetor são inteiros e pertencem a um intervalo de valores fixo e pequeno. Sua complexidade linear O(n + k) fez dele a opção mais eficiente quando aplicável, mas seu uso generalizado é restrito.
+ ● O Insertion Sort é eficiente para vetores pequenos, como até 22.000 elementos, mas torna-se lento em vetores maiores. Ele é uma boa escolha para dados quase ordenados, mas não é ideal para grandes volumes devido à sua complexidade O(n²). 
+ ● O Quick Sort, com complexidade média O(n log n), mostrou ser um dos algoritmos mais eficientes. Mesmo com grandes volumes de dados, como 1.000.000 de elementos, ele manteve um tempo de execução baixo, sendo ideal para vetores grandes. Se tratando do vetor de entrada previamente ordenado, o Quick sort sem o random cai em seu pior caso, se mostrando menos eficiente conforme aumentado o volume da entrada. Sendo assim, o Quick sort random se mostrou uma escolha mais eficiente para grandes entradas nos diversos casos. 
+ ● O Merge sort, com complexidade garantida de O(n log n), também apresentou excelente desempenho, especialmente em grandes vetores. Embora tenha um overhead de memória devido ao uso de memória adicional para combinar as sublistas, seu tempo de execução foi consistente e eficiente, mesmo para os maiores conjuntos de dados. 
+ ● O Counting Sort foi o mais rápido nos cenários testados, mas sua aplicação é limitada a quando os elementos do vetor são inteiros e pertencem a um intervalo de valores fixo e pequeno. Sua complexidade linear O(n + k) fez dele a opção mais eficiente quando aplicável, mas seu uso generalizado é restrito.
+ 
 Algoritmos de Busca: 
-● Para arrays não ordenados, a Busca Linear (iterativa ou recursiva) é a única opção viável, mas deve ser evitada em grandes conjuntos de dados. 
-● Para arrays ordenados, a Busca Binária Iterativa é a mais eficiente, reduzindo o tempo de execução significativamente.
+ ● Para arrays não ordenados, a Busca Linear (iterativa ou recursiva) é a única opção viável, mas deve ser evitada em grandes conjuntos de dados. 
+ ● Para arrays ordenados, a Busca Binária Iterativa é a mais eficiente, reduzindo o tempo de execução significativamente.
 
 OBS: Durante os testes de performance dos algoritmos, constatamos que alguns métodos, como o Selection Sort e o Bubble Sort, apresentaram sérias limitações em termos de tempo de execução em vetores de grandes dimensões. 
-● Selection Sort: devido à sua complexidade O(n²), não conseguiu ser executado dentro de um tempo aceitável para vetores grandes. O algoritmo se mostrou impraticável para conjuntos de dados maiores, não sendo possível coletar dados suficientes para incluir em nossa análise. 
-● Bubble Sort:O Bubble Sort foi executado algumas poucas vezes, mas também se mostrou extremamente ineficiente em grandes volumes de dados. Em vetores a partir de 120.000 elementos, o tempo de execução cresceu drasticamente, limitando a quantidade de execuções que conseguimos realizar. 
+ ● Selection Sort: devido à sua complexidade O(n²), não conseguiu ser executado dentro de um tempo aceitável para vetores grandes. O algoritmo se mostrou impraticável para conjuntos de dados maiores, não sendo possível coletar dados suficientes para incluir em nossa análise. 
+ ● Bubble Sort:O Bubble Sort foi executado algumas poucas vezes, mas também se mostrou extremamente ineficiente em grandes volumes de dados. Em vetores a partir de 120.000 elementos, o tempo de execução cresceu drasticamente, limitando a quantidade de execuções que conseguimos realizar. 
  
